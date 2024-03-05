@@ -11,11 +11,11 @@ public class Background : MonoBehaviour
     private float offset;
     private Material material;
 
-    public Text distanceText;
+    //public Text distanceText;
 
     //public TextMeshPro text;
 
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
      private float distance = 0.0f;
     void Start()
     {
@@ -29,8 +29,8 @@ public class Background : MonoBehaviour
         distance += scrollSpeed * Time.deltaTime;
          int distanceInt = Mathf.RoundToInt(distance);
         material.SetTextureOffset("_MainTex", new Vector2(offset,0));
-        Debug.Log(distanceInt);
-        text.text = string.Format("distancia = {0}", distanceInt);
+        //Debug.Log(distanceInt);
+        //text.text = string.Format("distancia = {0}", distanceInt);
 
     }
 }

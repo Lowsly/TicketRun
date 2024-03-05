@@ -4,25 +4,45 @@ public class Player : MonoBehaviour
 {
     public float upwardForce = 10f;
     public float gravityWhilePressed = 0.5f;
-    public float defaultGravity = 1f;
     private Rigidbody2D rb;
+    private bool isPressed = false;
+private float timer = 0f, timerFall = 0f, standardTimeWait=0.2f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = defaultGravity; // Set default gravity scale
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))
         {
-            rb.gravityScale = gravityWhilePressed; // Set lower gravity while the mouse is pressed
             rb.AddForce(Vector2.up * upwardForce, ForceMode2D.Force);
+            timer += Time.deltaTime;
+            timerFall = 0f;
+            if (timer <= standardTimeWait)
+            {
+                isPressed = true;
+                rb.gravityScale = 0.2f;
+            }
+            if(timer > standardTimeWait)
+            {
+                isPressed = true;
+                rb.gravityScale = gravityWhilePressed;
+            }
         }
         else
         {
-            rb.gravityScale = defaultGravity; // Reset to default gravity when the mouse is not pressed
+            timer = 0f;
+            timerFall += Time.deltaTime;
+            if(timerFall <= standardTimeWait)
+            {
+                rb.gravityScale = 0.8f;
+            }
+            if(timerFall > standardTimeWait)
+            {
+                rb.gravityScale = 0.9f;
+            }
         }
     }
 }
