@@ -1,38 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	
-	public float jumpForce = 2.5f;
+    public float upwardForce = 10f;
+    public float gravityWhilePressed = 0.5f;
+    public float defaultGravity = 1f;
+    private Rigidbody2D rb;
 
-	public Transform groundCheck;
-	public LayerMask groundLayer;
-	public float groundCheckRadius;
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = defaultGravity; // Set default gravity scale
+    }
 
-
-	private Rigidbody2D _rigidbody;
-
-	private bool _isGrounded;
-
-
-	void Awake()
-	{
-		_rigidbody = GetComponent<Rigidbody2D>();
-		
-	}
-
-    public void Update()
-    {	
-			_isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-			
-			if (Input.GetMouseButtonDown(0) && _isGrounded == true) {
-				_rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-			}
-		
-	}
-	
-	
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            rb.gravityScale = gravityWhilePressed; // Set lower gravity while the mouse is pressed
+            rb.AddForce(Vector2.up * upwardForce, ForceMode2D.Force);
+        }
+        else
+        {
+            rb.gravityScale = defaultGravity; // Reset to default gravity when the mouse is not pressed
+        }
+    }
 }
-
