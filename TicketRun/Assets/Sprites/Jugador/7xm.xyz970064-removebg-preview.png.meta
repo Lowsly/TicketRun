@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ee0f8fd71d2abf49b0c665876236a28
+guid: 6f2bc3fd780e24c41b938133fe485422
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,127 +141,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: runcycle1-animation_3_0
+      name: 7xm.xyz970064-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2d70356444f7e549ab026ecc7f79b77
-      internalID: 1490596988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runcycle1-animation_3_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23e3d907c96d1ca419e2e363ffba1a13
-      internalID: 1127550268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runcycle1-animation_3_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cdd181f44f2a59499e7788eceb2d8d0
-      internalID: 1847849006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runcycle1-animation_3_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f25e76b61c860a4693b84618abdb1a7
-      internalID: -1649080777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runcycle1-animation_3_4
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 39
         y: 0
-        width: 64
-        height: 64
+        width: 132
+        height: 270
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50ad5f6a90551bc42a6ba7c1b205f665
-      internalID: -292455895
+      spriteID: 293eb00124e91934bb0d0cac64c2cd48
+      internalID: 1848768209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runcycle1-animation_3_5
+      name: 7xm.xyz970064-removebg-preview_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 171
         y: 0
-        width: 64
-        height: 64
+        width: 132
+        height: 270
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5654d379a076ef1418bc89c8138ad4ac
-      internalID: -859236889
+      spriteID: 622342bed7390f747822b4ee6c5362c7
+      internalID: 1245158518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7xm.xyz970064-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 0
+        width: 132
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275e0a90b60320f47a80a8bc88b51440
+      internalID: 1905294858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7xm.xyz970064-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 0
+        width: 95
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b571d2e390a18418d6ff34632b500c
+      internalID: 320343937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7xm.xyz970064-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 111
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea42384355eb01b4ab9d68b10268e7c8
+      internalID: -1435760551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7xm.xyz970064-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 0
+        width: 110
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e621596003243d24591572b50fa99352
+      internalID: -1353244209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7xm.xyz970064-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 0
+        width: 132
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9edc24243253746bfd3495cbc583d8
+      internalID: 1983752508
       vertices: []
       indices: 
       edges: []
@@ -277,12 +298,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      runcycle1-animation_3_5: -859236889
-      runcycle1-animation_3_1: 1127550268
-      runcycle1-animation_3_3: -1649080777
-      runcycle1-animation_3_0: 1490596988
-      runcycle1-animation_3_4: -292455895
-      runcycle1-animation_3_2: 1847849006
+      7xm.xyz970064-removebg-preview_2: 1905294858
+      7xm.xyz970064-removebg-preview_5: -1353244209
+      7xm.xyz970064-removebg-preview_4: -1435760551
+      7xm.xyz970064-removebg-preview_1: 1245158518
+      7xm.xyz970064-removebg-preview_6: 1983752508
+      7xm.xyz970064-removebg-preview_3: 320343937
+      7xm.xyz970064-removebg-preview_0: 1848768209
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
