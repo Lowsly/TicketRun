@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Background : MonoBehaviour
 {
     // Start is called before the first frame update
-    [Range(-10f,10f)]
     public float scrollSpeed;
     private float offset;
     private Material material;
@@ -25,7 +24,7 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offset+= Time.deltaTime * scrollSpeed/10f;
+        offset+= Time.deltaTime * scrollSpeed;
         distance += scrollSpeed * Time.deltaTime;
          int distanceInt = Mathf.RoundToInt(distance);
         material.SetTextureOffset("_MainTex", new Vector2(offset,0));
