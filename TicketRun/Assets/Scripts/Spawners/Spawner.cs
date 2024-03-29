@@ -2,33 +2,100 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject objectToSpawn; // The prefab to spawn
-    public float spawnRate = 2f; // Rate of spawn (objects per second)
-    public float spawnDistance = 10f; // Distance from the edge of the screen where objects will spawn
-    private Camera mainCamera;
+    public GameObject[] prefabs;
+    private float timeToSpawn = 1.0f;
+    private float timeSinceLastSpawn;
+    public Transform playerTransform;
+    public Transform background;
 
+    private float _bh, _bw;
     void Start()
     {
-        mainCamera = Camera.main;
-        InvokeRepeating("SpawnObject", 0f, 1f / spawnRate); // Start spawning objects at specified rate
+        _bh = background.transform.localScale.x;
+        _bw = background.transform.localScale.y;
     }
 
-    void SpawnObject()
+    void Update()
     {
-        // Determine spawn position
-        Vector3 spawnPosition = Vector3.zero;
-        bool spawnFromTop = Random.Range(0, 2) == 0; // Randomly choose whether to spawn from top or bottom
-        if (spawnFromTop)
+        timeSinceLastSpawn += Time.deltaTime;
+
+        if (timeSinceLastSpawn >= timeToSpawn)
         {
-            spawnPosition = new Vector3(Random.Range(0f, mainCamera.pixelWidth)+mainCamera.pixelWidth*2, mainCamera.pixelHeight + spawnDistance, 10f);
+            GenerateEntity();
+            timeSinceLastSpawn = 0;
+            timeToSpawn = Mathf.Max(timeToSpawn * 0.9f, 1.0f); // Example of decreasing spawn time
+        }
+    }
+
+    void GenerateEntity()
+    {
+        int randomIndex = Random.Range(0, prefabs.Length);
+        GameObject selectedPrefab = prefabs[randomIndex];
+        GameObject entity = Instantiate(selectedPrefab, RandomPosition(), Quaternion.identity);
+
+        if (entity.CompareTag("Shark"))
+        {
+            AssignSharkBehavior(entity);
+        }
+    }
+
+    Vector3 RandomPosition()
+    {
+        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/5) : (_bh/5);
+        return new Vector3(Random.Range(-_bw/2, _bw/2), Rand, 0);
+    }
+
+    void AssignSharkBehavior(GameObject shark)
+    {
+        if (Random.Range(0, 2) == 0) // 50% chance
+        {
+            var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
+            chaseBehavior.playerTransform = playerTransform;
+        }
+        else
+        {   
+            float angleDegrees;
+            int spawnQuadrant = DetermineSpawnQuadrant(shark.transform.position); 
+
+            switch (spawnQuadrant)
+            {
+                case 0: // Top-Left
+                    angleDegrees = Random.Range(-115, -165); 
+                    break;
+                case 1: // Top-Right
+                    angleDegrees = Random.Range(115, 165); 
+                    break;
+                case 2: // Bottom-Left
+                    angleDegrees = Random.Range(-15, -75); 
+                    break;
+                case 3: // Bottom-Right
+                    angleDegrees = Random.Range(15, 75); 
+                    break;
+                default:
+                    angleDegrees = Random.Range(0, 360); 
+                    break;
+            }
+            Debug.Log(angleDegrees);
+            var straightLineBehavior = shark.AddComponent<LineaRecta>();
+            straightLineBehavior.SetMoveDirection(angleDegrees);
+        }
+    }
+    int DetermineSpawnQuadrant(Vector3 position)
+    {
+        if (position.x <= 0)
+        {
+            if (position.y < 0)
+                return 2; // Bottom-Left
+            else
+                return 0; // Top-Left
         }
         else
         {
-            spawnPosition = new Vector3(Random.Range(0f, mainCamera.pixelWidth)+mainCamera.pixelWidth*2, -spawnDistance, 10f);
+            if (position.y < 0)
+                return 3; // Bottom-Right
+            else
+                return 1; // Top-Right
         }
-        spawnPosition = mainCamera.ScreenToWorldPoint(spawnPosition);
-
-        // Spawn object
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
     }
+
 }
