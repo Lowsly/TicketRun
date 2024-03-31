@@ -675,7 +675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6574387113700114734, guid: 184db394a95ebd84dbc715a5d18bbcaf, type: 3}
+  - {fileID: 3265009700245342269, guid: 184db394a95ebd84dbc715a5d18bbcaf, type: 3}
+  - {fileID: 1997548171422281934, guid: 9b429da2ade52ff4ea37729f54a87bb9, type: 3}
   playerTransform: {fileID: 1027250102}
   background: {fileID: 1392497594}
 --- !u!1 &1839067916
