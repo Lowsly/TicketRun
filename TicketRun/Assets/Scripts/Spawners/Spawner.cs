@@ -3,7 +3,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float timeToSpawn = 1.0f;
+    private float timeToSpawn = 2.0f;
     private float timeSinceLastSpawn;
     public Transform playerTransform;
     public Transform background;
@@ -11,8 +11,8 @@ public class Spawner : MonoBehaviour
     private float _bh, _bw;
     void Start()
     {
-        _bh = background.transform.localScale.x;
-        _bw = background.transform.localScale.y;
+        _bh = background.transform.localScale.y;
+        _bw = background.transform.localScale.x;
     }
 
     void Update()
@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
 
     void AssignSharkBehavior(GameObject shark)
     {
-        if (Random.Range(0, 2) == 0) // 50% chance
+        if (Random.Range(0, 2) == 2) // 50% chance
         {
             var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
             chaseBehavior.playerTransform = playerTransform;
@@ -75,9 +75,10 @@ public class Spawner : MonoBehaviour
                     angleDegrees = Random.Range(0, 360); 
                     break;
             }
-            Debug.Log(angleDegrees);
+            
             var straightLineBehavior = shark.AddComponent<LineaRecta>();
             straightLineBehavior.SetMoveDirection(angleDegrees);
+            shark.AddComponent<GirarCuerpo>();
         }
     }
     int DetermineSpawnQuadrant(Vector3 position)

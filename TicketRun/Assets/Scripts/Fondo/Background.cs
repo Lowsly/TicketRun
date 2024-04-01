@@ -27,7 +27,7 @@ public class Background : MonoBehaviour
         offset+= Time.deltaTime * scrollSpeed;
         distance += scrollSpeed * Time.deltaTime;
          int distanceInt = Mathf.RoundToInt(distance);
-        material.SetTextureOffset("_MainTex", new Vector2(offset,0));
+        material.SetTextureOffset("_MainTex", new Vector2(0,offset));
         //Debug.Log(distanceInt);
         //text.text = string.Format("distancia = {0}", distanceInt);
 

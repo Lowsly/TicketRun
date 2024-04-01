@@ -10,6 +10,6 @@ public class AjusteFondo : MonoBehaviour
         
         float escala = relacionDeAspectoPantalla / 0.5f;
             
-        background.transform.localScale = new Vector3(escala*10, escala*2.5f, 1.0f);
+        background.transform.localScale = new Vector3(escala*2, escala*6, 1.0f);
     }
 }
