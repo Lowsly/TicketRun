@@ -7,9 +7,12 @@ public class Tocado : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public GameObject parentGameObject;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInParent<Rigidbody2D>();
+
     }
 
     void OnMouseDown()
@@ -37,6 +40,7 @@ public class Tocado : MonoBehaviour
             }
         }
          rb.AddForce(swipeDirection * swipeStrength, ForceMode2D.Impulse);
+         Destroy(parentGameObject);
     }
 
     void OnBecameInvisible()

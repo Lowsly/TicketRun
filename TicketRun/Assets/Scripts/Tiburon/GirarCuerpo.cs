@@ -6,20 +6,17 @@ public class GirarCuerpo : MonoBehaviour
     public float tiltRange = 3.5f; // Range of tilt from the initial angle
     private float tiltDuration = 0.5f; // Duration to tilt from one side to the other
 
-    private float initialAngle;
 
     void Start()
     {
-        // Capture the initial angle of the shark at the start
-        initialAngle = transform.eulerAngles.z;
         StartCoroutine(TiltRoutine());
     }
 
     IEnumerator TiltRoutine()
     {
         // Calculate the maximum and minimum angles based on the tilt range
-        float minAngle = initialAngle - tiltRange;
-        float maxAngle = initialAngle + tiltRange;
+        float minAngle = transform.eulerAngles.z - tiltRange;
+        float maxAngle = transform.eulerAngles.z + tiltRange;
 
         while (true)
         {

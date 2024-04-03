@@ -5,6 +5,15 @@ public class Spawner : MonoBehaviour
     public GameObject[] prefabs;
     private float timeToSpawn = 2.0f;
     private float timeSinceLastSpawn;
+
+    public float difficulty = 1f;
+    private float softCapDifficulty = 1.5F;
+    public float difficultyIncreaseRate = 0.05f; 
+    private float difficultyIncreaseInterval = 10;
+    private float timeSinceLastDifficultyIncrease = 0.0f;
+
+
+
     public Transform playerTransform;
     public Transform background;
 
@@ -23,8 +32,17 @@ public class Spawner : MonoBehaviour
         {
             GenerateEntity();
             timeSinceLastSpawn = 0;
-            timeToSpawn = Mathf.Max(timeToSpawn * 0.9f, 1.0f); // Example of decreasing spawn time
+            timeToSpawn = Mathf.Max(1/difficulty, 0.4f); 
         }
+        
+        timeSinceLastDifficultyIncrease += Time.deltaTime;
+
+        if (timeSinceLastDifficultyIncrease >= difficultyIncreaseInterval)
+        {   
+            timeSinceLastDifficultyIncrease = 0;
+            difficulty = (difficulty < softCapDifficulty) ? difficulty += difficultyIncreaseRate : difficulty += difficultyIncreaseRate/2;
+        }
+
     }
 
     void GenerateEntity()
@@ -41,7 +59,7 @@ public class Spawner : MonoBehaviour
 
     Vector3 RandomPosition()
     {
-        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/5) : (_bh/5);
+        float Rand =  Random.Range(0, 2) == 0 ? -_bh/3 : _bh/3;
         return new Vector3(Random.Range(-_bw/2, _bw/2), Rand, 0);
     }
 
@@ -78,6 +96,7 @@ public class Spawner : MonoBehaviour
             
             var straightLineBehavior = shark.AddComponent<LineaRecta>();
             straightLineBehavior.SetMoveDirection(angleDegrees);
+            straightLineBehavior.difficulty = difficulty;
             shark.AddComponent<GirarCuerpo>();
         }
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 161428566547296923}
   - component: {fileID: 161428566547296924}
   m_Layer: 6
-  m_Name: Tiburon
+  m_Name: Tiburon 1
   m_TagString: Shark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
