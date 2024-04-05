@@ -16,8 +16,8 @@ public class LineaRecta : MonoBehaviour
         girar = GetComponent<GirarCuerpo>();
 
         // Randomly decide whether to change direction based on difficulty
-        float randomDecision = Random.Range(0, 2 + (difficulty -1)*4); 
-        if (randomDecision > 3f)
+        float randomDecision = Random.Range(0, 2 + (difficulty -1)*5); 
+        if (randomDecision > 2.5f)
         {
             shouldChangeDirection = true;
             randomTime = Random.Range(1f, 3f - difficulty/4);
@@ -50,7 +50,7 @@ public class LineaRecta : MonoBehaviour
                 if (timeWhileChanging >= randomChangeDirectionTime)
                 {
                     gameObject.AddComponent<GirarCuerpo>();
-                    speed = speed * 1.2f + difficulty/4;
+                    speed = speed * 1.1f + difficulty/4;
                     shouldChangeDirection = false;
                 }
             }

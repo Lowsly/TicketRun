@@ -7,45 +7,62 @@ public class Tocado : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public GameObject parentGameObject;
+    public GameObject parentGameObject; // Ensure this is assigned, possibly this gameObject if it's the parent
 
     void Start()
     {
         rb = GetComponentInParent<Rigidbody2D>();
-
     }
 
-    void OnMouseDown()
+    void Update()
     {
-        // Calculate the direction to swipe away
-        Debug.Log("tocado");
-        Vector2 swipeDirection = -rb.velocity.normalized*100; // Assuming the object is moving, swipe in the opposite direction
+        // Check if there's any touch input
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began) // Check if the touch just began
+                {
+                    // Convert touch position to world point
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                    touchPosition.z = 0; // Ensure the z position is set correctly for a 2D game
+
+                    // Perform a raycast to see if we hit this object
+                    RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+                    if (hit.collider != null && hit.collider.gameObject == gameObject)
+                    {
+                        HandleTouch();
+                    }
+                }
+            }
+        }
+    }
+
+    private void HandleTouch()
+    {
+        Vector2 swipeDirection = -rb.velocity.normalized * 100; // Assuming the object is moving, swipe in the opposite direction
         if (swipeDirection == Vector2.zero)
         {
-            // If the object wasn't moving, default to swiping it upwards or any other default direction
             swipeDirection = Vector2.up;
         }
 
-        // Apply a force in the calculated direction
         rb.AddForce(swipeDirection * swipeStrength, ForceMode2D.Impulse);
-        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
 
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
         foreach (var script in scripts)
         {
-            // Check if the script is not the current script (the one removing the others).
             if (script != this)
             {
-                // Remove the script component.
                 Destroy(script);
             }
         }
-         rb.AddForce(swipeDirection * swipeStrength, ForceMode2D.Impulse);
-         Destroy(parentGameObject);
+
+        rb.AddForce(swipeDirection * swipeStrength, ForceMode2D.Impulse);
+        Destroy(parentGameObject);
     }
 
     void OnBecameInvisible()
     {
-        // Destroy the object when it is no longer visible
         Destroy(gameObject);
     }
 }

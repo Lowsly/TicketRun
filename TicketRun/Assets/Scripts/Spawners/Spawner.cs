@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
         float bw = _bw/2;
         if(difficulty < 1.5f)
         {
-            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/3)-0.5f : (_bh/3)+0.5f;
+            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
             return new Vector3(Random.Range(-bw, bw), Rand, 0);
         }
         else 
@@ -71,9 +71,9 @@ public class Spawner : MonoBehaviour
             if(randomY)
             {
                 float RandX =  Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
-                return new Vector3(RandX,Random.Range(-_bh/3, _bh/3), 0);
+                return new Vector3(RandX,Random.Range(-_bh/2, _bh/2), 0);
             }
-            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/3)-0.5f : (_bh/3)+0.5f;
+            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
             return new Vector3(Random.Range(-bw, bw), Rand, 0);
         }
     }
@@ -105,17 +105,28 @@ public class Spawner : MonoBehaviour
                 case 3: // Bottom-Right
                     angleDegrees = Random.Range(15, 75); 
                     break;
+                case 4: //Top-side
+                    angleDegrees = Random.Range(155, 205); 
+                    break;
+                case 5: // Bottom Side
+                    angleDegrees = Random.Range(25, -25); 
+                    break;
+                case 6: // Left Side
+                    angleDegrees = Random.Range(-65, -115); 
+                    break;
+                case 7: // Right Side
+                    angleDegrees = Random.Range(65, 115); 
+                    break;
                 default:
                     angleDegrees = Random.Range(0, 360); 
                     break;
             }
-            
+            Debug.Log(spawnQuadrant);
             var straightLineBehavior = shark.AddComponent<LineaRecta>();
             straightLineBehavior.SetMoveDirection(angleDegrees);
             straightLineBehavior.difficulty = difficulty;
 
             straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty+0.001f,4);
-            Debug.Log("Speed: " + straightLineBehavior.speed);
             
 
             shark.AddComponent<GirarCuerpo>();
@@ -123,8 +134,7 @@ public class Spawner : MonoBehaviour
     }
     int DetermineSpawnLocation(Vector3 position)
     {
-        // Define thresholds for determining corners versus sides.
-        float cornerThresholdX = _bw / 4; // Adjust as needed for your game's design.
+        float cornerThresholdX = _bw / 3; // Adjust as needed for your game's design.
         float cornerThresholdY = _bh / 4; // Adjust as needed.
 
         bool nearLeftOrRightEdge = Mathf.Abs(position.x) > (_bw / 2) - cornerThresholdX;
