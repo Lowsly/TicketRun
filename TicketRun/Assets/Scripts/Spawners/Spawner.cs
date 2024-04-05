@@ -8,8 +8,8 @@ public class Spawner : MonoBehaviour
 
     public float difficulty = 1f;
     private float softCapDifficulty = 1.5F;
-    public float difficultyIncreaseRate = 0.05f; 
-    private float difficultyIncreaseInterval = 10;
+    public float difficultyIncreaseRate = 0.0125f; 
+    private float difficultyIncreaseInterval = 5;
     private float timeSinceLastDifficultyIncrease = 0.0f;
 
 
@@ -59,21 +59,37 @@ public class Spawner : MonoBehaviour
 
     Vector3 RandomPosition()
     {
-        float Rand =  Random.Range(0, 2) == 0 ? -_bh/3 : _bh/3;
-        return new Vector3(Random.Range(-_bw/2, _bw/2), Rand, 0);
+        float bw = _bw/2;
+        if(difficulty < 1.5f)
+        {
+            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/3)-0.5f : (_bh/3)+0.5f;
+            return new Vector3(Random.Range(-bw, bw), Rand, 0);
+        }
+        else 
+        {
+            bool randomY = Random.Range(0, 2) == 0 ? true : false;
+            if(randomY)
+            {
+                float RandX =  Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
+                return new Vector3(RandX,Random.Range(-_bh/3, _bh/3), 0);
+            }
+            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/3)-0.5f : (_bh/3)+0.5f;
+            return new Vector3(Random.Range(-bw, bw), Rand, 0);
+        }
     }
 
     void AssignSharkBehavior(GameObject shark)
     {
-        if (Random.Range(0, 2) == 2) // 50% chance
+        if (Random.Range(0, 2) == 0) // 50% chance
         {
             var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
             chaseBehavior.playerTransform = playerTransform;
+            chaseBehavior.speed =  0.7f + Mathf.Log(difficulty+0.001f,4);
         }
         else
         {   
             float angleDegrees;
-            int spawnQuadrant = DetermineSpawnQuadrant(shark.transform.position); 
+            int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
 
             switch (spawnQuadrant)
             {
@@ -97,25 +113,44 @@ public class Spawner : MonoBehaviour
             var straightLineBehavior = shark.AddComponent<LineaRecta>();
             straightLineBehavior.SetMoveDirection(angleDegrees);
             straightLineBehavior.difficulty = difficulty;
+
+            straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty+0.001f,4);
+            Debug.Log("Speed: " + straightLineBehavior.speed);
+            
+
             shark.AddComponent<GirarCuerpo>();
         }
     }
-    int DetermineSpawnQuadrant(Vector3 position)
+    int DetermineSpawnLocation(Vector3 position)
     {
-        if (position.x <= 0)
+        // Define thresholds for determining corners versus sides.
+        float cornerThresholdX = _bw / 4; // Adjust as needed for your game's design.
+        float cornerThresholdY = _bh / 4; // Adjust as needed.
+
+        bool nearLeftOrRightEdge = Mathf.Abs(position.x) > (_bw / 2) - cornerThresholdX;
+        bool nearTopOrBottomEdge = Mathf.Abs(position.y) > (_bh / 2) - cornerThresholdY;
+
+        // Determine corners
+        if (nearLeftOrRightEdge && nearTopOrBottomEdge)
         {
-            if (position.y < 0)
-                return 2; // Bottom-Left
-            else
-                return 0; // Top-Left
+            if (position.x <= 0 && position.y > 0) return 0; // Top-Left Corner
+            if (position.x > 0 && position.y > 0) return 1; // Top-Right Corner
+            if (position.x <= 0 && position.y <= 0) return 2; // Bottom-Left Corner
+            if (position.x > 0 && position.y <= 0) return 3; // Bottom-Right Corner
         }
-        else
+        // Determine sides
+        else if (nearTopOrBottomEdge)
         {
-            if (position.y < 0)
-                return 3; // Bottom-Right
-            else
-                return 1; // Top-Right
+            if (position.y > 0) return 4; // Top Side
+            else return 5; // Bottom Side
         }
+        else if (nearLeftOrRightEdge)
+        {
+            if (position.x <= 0) return 6; // Left Side
+            else return 7; // Right Side
+        }
+
+        return 8; // Default case, possibly center or not fitting other criteria
     }
 
 }

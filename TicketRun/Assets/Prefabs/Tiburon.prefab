@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 161428566547296922}
   - component: {fileID: 161428566547296923}
   - component: {fileID: 161428566547296924}
+  - component: {fileID: -4607364282842108965}
   m_Layer: 6
   m_Name: Tiburon
   m_TagString: Shark
@@ -145,6 +146,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4607364282842108965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161428566547296926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee14b600548f08841a4aaf1630d01c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7850671498567319981
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,9 +170,6 @@ GameObject:
   - component: {fileID: 2258912095431802938}
   - component: {fileID: 5856940005377861353}
   - component: {fileID: 2232376918828513039}
-  - component: {fileID: 4814400132531095718}
-  - component: {fileID: 2156603034117611020}
-  - component: {fileID: 1923981987786107100}
   m_Layer: 7
   m_Name: hitbox
   m_TagString: Hitbox
@@ -216,8 +226,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025, y: 0.8}
-  m_Size: {x: 0.6, y: 2}
+  m_Offset: {x: -0.025, y: 0.38638726}
+  m_Size: {x: 1.56, y: 2.8272262}
   m_Direction: 0
 --- !u!114 &2232376918828513039
 MonoBehaviour:
@@ -233,51 +243,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeStrength: 500
   parentGameObject: {fileID: 161428566547296926}
---- !u!70 &4814400132531095718
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850671498567319981}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.034652695, y: 0.898939}
-  m_Size: {x: 1.6675272, y: 0.39416882}
-  m_Direction: 1
---- !u!70 &2156603034117611020
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850671498567319981}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.033262238, y: -0.091974765}
-  m_Size: {x: 0.78668183, y: 0.29834157}
-  m_Direction: 1
---- !u!70 &1923981987786107100
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850671498567319981}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0

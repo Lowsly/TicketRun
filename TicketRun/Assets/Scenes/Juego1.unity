@@ -677,7 +677,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 161428566547296926, guid: 609e5cf3009b9b04c8769ebfdf7db139, type: 3}
   difficulty: 1
-  difficultyIncreaseRate: 0.05
+  difficultyIncreaseRate: 0.0125
   playerTransform: {fileID: 1027250102}
   background: {fileID: 1392497594}
 --- !u!1 &1839067916

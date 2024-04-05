@@ -3,7 +3,7 @@ using UnityEngine;
 public class PerseguirTortuga : MonoBehaviour
 {
     public Transform playerTransform; // Assign this from the inspector or find it dynamically
-    public float speed = 1.0f;
+    public float speed = 0.8f;
 
     void Update()
     {
