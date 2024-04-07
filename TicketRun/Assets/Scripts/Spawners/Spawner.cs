@@ -7,9 +7,9 @@ public class Spawner : MonoBehaviour
     private float timeSinceLastSpawn;
 
     public float difficulty = 1f;
-    private float softCapDifficulty = 1.5F;
-    public float difficultyIncreaseRate = 0.0125f; 
-    private float difficultyIncreaseInterval = 5;
+    private float softCapDifficulty = 1.8F;
+    public float difficultyIncreaseRate = 0.025f; 
+    private float difficultyIncreaseInterval = 2.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
 
 
@@ -47,14 +47,13 @@ public class Spawner : MonoBehaviour
 
     void GenerateEntity()
     {
-        int randomIndex = Random.Range(0, prefabs.Length);
-        GameObject selectedPrefab = prefabs[randomIndex];
-        GameObject entity = Instantiate(selectedPrefab, RandomPosition(), Quaternion.identity);
-
-        if (entity.CompareTag("Shark"))
+        if(Random.Range(0, 3) == 0 && difficulty > softCapDifficulty)
         {
-            AssignSharkBehavior(entity);
+            GameObject SharkLine2 = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
+            AssignSharkBehaviorLine(SharkLine2);
         }
+        GameObject SharkLine = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
+        SharkLine.AddComponent<MovimientoSigiloso>();
     }
 
     Vector3 RandomPosition()
@@ -78,18 +77,20 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void AssignSharkBehavior(GameObject shark)
+    void AssignSharkBehaviorChase (GameObject shark)
     {
-        if (Random.Range(0, 2) == 0) // 50% chance
-        {
-            var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
-            chaseBehavior.playerTransform = playerTransform;
-            chaseBehavior.speed =  0.7f + Mathf.Log(difficulty+0.001f,4);
-        }
-        else
-        {   
+        var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
+        chaseBehavior.playerTransform = playerTransform;
+        chaseBehavior.speed =  0.9f + Mathf.Log(difficulty+0.001f,5);
+        shark.AddComponent<GirarCuerpo>();
+    }
+    void AssignSharkBehaviorLine(GameObject shark)
+    {
+           
+         
             float angleDegrees;
             int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
+            
 
             switch (spawnQuadrant)
             {
@@ -121,7 +122,7 @@ public class Spawner : MonoBehaviour
                     angleDegrees = Random.Range(0, 360); 
                     break;
             }
-            Debug.Log(spawnQuadrant);
+            
             var straightLineBehavior = shark.AddComponent<LineaRecta>();
             straightLineBehavior.SetMoveDirection(angleDegrees);
             straightLineBehavior.difficulty = difficulty;
@@ -130,7 +131,6 @@ public class Spawner : MonoBehaviour
             
 
             shark.AddComponent<GirarCuerpo>();
-        }
     }
     int DetermineSpawnLocation(Vector3 position)
     {

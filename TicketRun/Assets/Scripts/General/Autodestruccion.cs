@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Autodestruccion : MonoBehaviour
 {
+    public float Tiempo;
     void Start()
     {
-        Invoke("AutoDestruir", 5f);
+        Invoke("AutoDestruir", Tiempo);
     }
 
     void AutoDestruir()
