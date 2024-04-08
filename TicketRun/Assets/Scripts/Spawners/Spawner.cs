@@ -52,8 +52,15 @@ public class Spawner : MonoBehaviour
             GameObject SharkLine2 = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
             AssignSharkBehaviorLine(SharkLine2);
         }
+        if(Random.Range(0, 4) == 0 && difficulty > softCapDifficulty)
+        {
+            GameObject SharkSneaky = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
+            AssignSharkSneaky(SharkSneaky);
+        }
+        GameObject SharkChase = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
+        AssignSharkBehaviorChase(SharkChase);
         GameObject SharkLine = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-        SharkLine.AddComponent<MovimientoSigiloso>();
+        AssignSharkBehaviorLine(SharkLine);
     }
 
     Vector3 RandomPosition()
@@ -81,18 +88,40 @@ public class Spawner : MonoBehaviour
     {
         var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
         chaseBehavior.playerTransform = playerTransform;
-        chaseBehavior.speed =  0.9f + Mathf.Log(difficulty+0.001f,5);
-        shark.AddComponent<GirarCuerpo>();
+        chaseBehavior.speed =  0.9f + Mathf.Log(difficulty+0.001f,6);
     }
     void AssignSharkBehaviorLine(GameObject shark)
-    {
-           
-         
-            float angleDegrees;
-            int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
-            
+    {    
+        int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
+        float angleDegrees = DetermineAngle(spawnQuadrant);
 
-            switch (spawnQuadrant)
+        var straightLineBehavior = shark.AddComponent<LineaRecta>();
+        straightLineBehavior.SetMoveDirection(angleDegrees);
+        straightLineBehavior.difficulty = difficulty;
+
+        straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty+0.001f,5);
+        
+        shark.AddComponent<GirarCuerpo>();
+    }
+
+    void AssignSharkSneaky(GameObject shark)
+    {    
+        int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
+        float angleDegrees = DetermineAngle(spawnQuadrant);
+
+        var sneakyBehaviour = shark.AddComponent<MovimientoSigiloso>();
+        sneakyBehaviour.SetMoveDirection(angleDegrees);
+        sneakyBehaviour.centerPoint = playerTransform;
+        //sneakyBehaviour.difficulty = difficulty;
+
+        //sneakyBehaviour.speed =  0.75f + Mathf.Log(difficulty+0.001f,4);
+
+    }
+
+    float DetermineAngle(int spawnQuadrant)
+    {
+        float angleDegrees;
+         switch (spawnQuadrant)
             {
                 case 0: // Top-Left
                     angleDegrees = Random.Range(-115, -165); 
@@ -122,15 +151,7 @@ public class Spawner : MonoBehaviour
                     angleDegrees = Random.Range(0, 360); 
                     break;
             }
-            
-            var straightLineBehavior = shark.AddComponent<LineaRecta>();
-            straightLineBehavior.SetMoveDirection(angleDegrees);
-            straightLineBehavior.difficulty = difficulty;
-
-            straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty+0.001f,4);
-            
-
-            shark.AddComponent<GirarCuerpo>();
+        return angleDegrees;
     }
     int DetermineSpawnLocation(Vector3 position)
     {

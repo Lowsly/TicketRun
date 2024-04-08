@@ -12,6 +12,7 @@ public class Tocado : MonoBehaviour
     void Start()
     {
         rb = GetComponentInParent<Rigidbody2D>();
+        parentGameObject = gameObject.transform.parent.gameObject;
     }
 
     void Update()
