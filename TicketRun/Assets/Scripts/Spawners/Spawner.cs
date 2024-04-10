@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     private float timeSinceLastSpawn;
 
     public float difficulty = 1f;
-    private float softCapDifficulty = 1.8F;
+    private float softCapDifficulty = 1.5F;
     public float difficultyIncreaseRate = 0.025f; 
     private float difficultyIncreaseInterval = 2.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
@@ -88,7 +88,7 @@ public class Spawner : MonoBehaviour
     {
         var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
         chaseBehavior.playerTransform = playerTransform;
-        chaseBehavior.speed =  0.9f + Mathf.Log(difficulty+0.001f,6);
+        chaseBehavior.speed =  0.9f + Mathf.Log(difficulty,7);
     }
     void AssignSharkBehaviorLine(GameObject shark)
     {    
@@ -99,7 +99,7 @@ public class Spawner : MonoBehaviour
         straightLineBehavior.SetMoveDirection(angleDegrees);
         straightLineBehavior.difficulty = difficulty;
 
-        straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty+0.001f,5);
+        straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty,7);
         
         shark.AddComponent<GirarCuerpo>();
     }
