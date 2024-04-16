@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shark
-  - SharkParent
+  - Enemy
   - Hitbox
+  - Healing
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - Enemy
   - Hitbox
-  - 
+  - Player
   - 
   - 
   - 
