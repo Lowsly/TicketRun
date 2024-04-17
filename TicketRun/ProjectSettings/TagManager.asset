@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Hitbox
   - Healing
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Enemy
   - Hitbox
   - Player
-  - 
-  - 
+  - Obstacle
+  - Immune
   - 
   - 
   - 
