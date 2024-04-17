@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6917cd932a10a04aa0bafd215c7ee50
+guid: 78d2a97bb0623214e84eaa5f9533b786
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bote particulas_0
+      name: Tiburon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1057.5
+        y: 1200
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63f04549d25a13343b67748bda599d4e
-      internalID: -1819406119
+      spriteID: ef91d6e536f7f874d8512dfc3e405506
+      internalID: 2142013119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_1
+      name: Tiburon_1
       rect:
         serializedVersion: 2
         x: 400
-        y: 1057.5
+        y: 1200
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86962ea8f0bd7a940b795e24db59096d
-      internalID: 151075986
+      spriteID: bde146379682aeb42826a1b0ae65f1b3
+      internalID: 523806758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_2
+      name: Tiburon_2
       rect:
         serializedVersion: 2
         x: 800
-        y: 1057.5
+        y: 1200
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +197,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 716fc52bd7579d94ba19363277917606
-      internalID: -1965186554
+      spriteID: 35b7e544d1362564da7beb0fc0a52193
+      internalID: 2070417743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_3
+      name: Tiburon_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad02921bbc9aa7043a3b88d85c9247c2
+      internalID: -1169404117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiburon_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e959539081a76f549959dd16c6023be5
+      internalID: -542379137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiburon_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 705.5
+        y: 800
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +260,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a24764af0b933943a88f597fc219888
-      internalID: 981101950
+      spriteID: fe77d8cd6b90245438fc78662c5e6643
+      internalID: 1451986728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_4
+      name: Tiburon_6
       rect:
         serializedVersion: 2
         x: 400
-        y: 705.5
+        y: 800
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 785188dbddd8a224a8af8db6ab1af7b3
-      internalID: -38604594
+      spriteID: b7c191fae15520b46bf2993c11d35809
+      internalID: -932532786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_5
+      name: Tiburon_7
       rect:
         serializedVersion: 2
         x: 800
-        y: 705.5
+        y: 800
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,20 +302,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16b718994dda87647a5a2e683a902024
-      internalID: 423286009
+      spriteID: 30e3c30ae914e744b9c21bdcc6f23123
+      internalID: 1036474250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_6
+      name: Tiburon_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d9ea63429b3cc4aac02bade7b3ea3c
+      internalID: -1237815874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiburon_9
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21669c70712d5694e8d47fb235e5986b
+      internalID: -1005997768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiburon_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 353.5
+        y: 400
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,20 +365,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2db9343f43161a4881dc6d6dbf84740
-      internalID: -664697680
+      spriteID: f6998acfebdded14d8fc27c8d1b8c66e
+      internalID: -1111076487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_7
+      name: Tiburon_11
       rect:
         serializedVersion: 2
         x: 400
-        y: 353.5
+        y: 400
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,20 +386,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e9a47de80ca62344858b3b9b526a891
-      internalID: 1604794946
+      spriteID: 91ef0ec954c43a240ab99afacb0b4a7e
+      internalID: 281483804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_8
+      name: Tiburon_12
       rect:
         serializedVersion: 2
         x: 800
-        y: 353.5
+        y: 400
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,20 +407,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7421825f38b3464c8dad67ff66a4def
-      internalID: -1909344781
+      spriteID: d3403391d80473e48ae637a69f9a43cf
+      internalID: 977054789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_9
+      name: Tiburon_13
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8e10be8097fe747a495605fa810661
+      internalID: 373567329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiburon_14
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1197f1efff97cda40a7031d6727ef3aa
+      internalID: -1040169995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiburon_15
       rect:
         serializedVersion: 2
         x: 0
-        y: 1.5
+        y: 0
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,20 +470,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f472f6481a149cf46a51778f347428e4
-      internalID: -1613507793
+      spriteID: f4d23ed4f1a3eb543a7f647f98e77687
+      internalID: 1015060746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_10
+      name: Tiburon_16
       rect:
         serializedVersion: 2
         x: 400
-        y: 1.5
+        y: 0
         width: 400
-        height: 352.5
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,29 +491,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 685601661e5886844b5643e9a9049c17
-      internalID: -917671311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_11
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 1.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d07801bd96bafb641b53423458054379
-      internalID: -701022408
+      spriteID: d9ab1e71ab608e043bf058c041232943
+      internalID: -375879472
       vertices: []
       indices: 
       edges: []
@@ -403,18 +508,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bote particulas_9: -1613507793
-      bote particulas_3: 981101950
-      bote particulas_6: -664697680
-      bote particulas_4: -38604594
-      bote particulas_1: 151075986
-      bote particulas_7: 1604794946
-      bote particulas_0: -1819406119
-      bote particulas_8: -1909344781
-      bote particulas_5: 423286009
-      bote particulas_2: -1965186554
-      bote particulas_10: -917671311
-      bote particulas_11: -701022408
+      Tiburon_4: -542379137
+      Tiburon_15: 1015060746
+      Tiburon_14: -1040169995
+      Tiburon_9: -1005997768
+      Tiburon_8: -1237815874
+      Tiburon_2: 2070417743
+      Tiburon_10: -1111076487
+      Tiburon_11: 281483804
+      Tiburon_16: -375879472
+      Tiburon_12: 977054789
+      Tiburon_5: 1451986728
+      Tiburon_3: -1169404117
+      Tiburon_0: 2142013119
+      Tiburon_6: -932532786
+      Tiburon_7: 1036474250
+      Tiburon_13: 373567329
+      Tiburon_1: 523806758
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

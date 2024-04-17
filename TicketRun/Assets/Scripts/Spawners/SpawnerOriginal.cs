@@ -57,11 +57,8 @@ public class SpawnerOrignal : MonoBehaviour
             GameObject SharkSneaky = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
             AssignSharkSneaky(SharkSneaky);
         }
-        if(Random.Range(0, 6-difficulty) == 0)
-        {
-            GameObject SharkChase = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-            AssignSharkBehaviorChase(SharkChase);
-        }
+        GameObject SharkChase = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
+        AssignSharkBehaviorChase(SharkChase);
         GameObject SharkLine = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
         AssignSharkBehaviorLine(SharkLine);
     }
