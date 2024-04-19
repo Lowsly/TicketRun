@@ -1,18 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     public float speed = 5.0f;
-    public float turnSpeed = 2.0f; // Adjust the turn speed for smoother transitions
-    private Rigidbody2D rb; // Reference to the Rigidbody component
+    public float turnSpeed = 2.0f;
     private static BehaviorNode behaviorTree;
-    private bool isObstacleNear = false;
     private Vector3 originalDirection;
-    private Transform obstacleTransform; // Keep track of the obstacle transform
+    private List<Transform> obstacles = new List<Transform>(); // List to track multiple obstacles
+    private List<Transform> earlyWarnings = new List<Transform>(); // List for early warning obstacles
+    private Rigidbody2D rb;
 
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>(); // Ensure there's a Rigidbody2D component attached
+        rb = GetComponent<Rigidbody2D>();
         originalDirection = transform.up; // Initialize the original direction
         if (behaviorTree == null) {
             InitializeBehaviorTree();
@@ -23,46 +22,64 @@ public class Enemy : MonoBehaviour {
         behaviorTree.Execute(this);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Obstacle")) {
-            isObstacleNear = true;
-            obstacleTransform = other.transform;
-            Debug.Log("Obstacle detected: " + other.name);
-            if (Vector3.Distance(transform.position, obstacleTransform.position) < 1f) { // Adjust the detection distance to your game's scale
-                originalDirection = transform.up; // Update the original direction upon encountering an obstacle
-            }
+    public void HandleObstacleEnter(Transform obstacle) {
+        if (!obstacles.Contains(obstacle)) {
+            obstacles.Add(obstacle);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        if (other.CompareTag("Obstacle")) {
-            isObstacleNear = false;
-            obstacleTransform = null;
+    public void HandleObstacleExit(Transform obstacle) {
+        obstacles.Remove(obstacle);
+    }
+
+    public void HandleEarlyWarningEnter(Transform obstacle) {
+        if (!earlyWarnings.Contains(obstacle)) {
+            earlyWarnings.Add(obstacle);
+            PreAdjustToObstacle(obstacle);
         }
+    }
+
+    public void HandleEarlyWarningExit(Transform obstacle) {
+        earlyWarnings.Remove(obstacle);
+    }
+
+    private void PreAdjustToObstacle(Transform obstacle) {
+        // Slight adjustment towards the obstacle
+        Vector3 obstacleDirection = (obstacle.position - transform.position).normalized;
+        Vector3 newDirection = Vector3.Lerp(transform.up, obstacleDirection, 0.1f);
+        transform.up = newDirection;
+    }
+
+    private Transform GetMostThreateningObstacle() {
+        Transform mostThreatening = null;
+        float minDistance = float.MaxValue;
+        foreach (var obs in obstacles) {
+            float distance = Vector3.Distance(transform.position, obs.position);
+            if (distance < minDistance) {
+                minDistance = distance;
+                mostThreatening = obs;
+            }
+        }
+        return mostThreatening;
     }
 
     public bool CheckForObstacles() {
-        return isObstacleNear;
+        return obstacles.Count > 0;
     }
 
     public void MoveStraight() {
-        Vector2 moveDirection = transform.up * speed;
-        rb.velocity = moveDirection;
+        rb.velocity = transform.up * speed;
     }
 
     public void AvoidObstacle() {
-        if (obstacleTransform != null) {
-            Vector3 obstacleDirection = obstacleTransform.position - transform.position;
-            float angle = Vector3.SignedAngle(transform.up, obstacleDirection, Vector3.forward);
-            float turnAngle = angle > 0 ? -turnSpeed : turnSpeed;
-
-            // Only apply rotation if not aligned with original direction
-            if (Mathf.Abs(angle) > 10) { // Threshold angle to avoid small oscillations
-                Quaternion rotation = Quaternion.Euler(0, 0, turnAngle);
-                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5); // Smooth rotation
-            } else {
-                transform.up = Vector3.Lerp(transform.up, originalDirection, Time.deltaTime * 5); // Smoothly align to original direction
-            }
+        Transform closestObstacle = GetMostThreateningObstacle();
+        if (closestObstacle != null) {
+            Vector3 obstacleDirection = closestObstacle.position - transform.position;
+            float angleToObstacle = Vector3.SignedAngle(transform.up, obstacleDirection, Vector3.forward);
+            float turnAngle;
+            float angleStep = (Mathf.Abs(angleToObstacle) > 0) ? turnSpeed * Time.deltaTime : 0;
+            turnAngle = angleToObstacle > 0 ? -angleStep : angleStep;
+            transform.Rotate(0, 0, turnAngle);
         }
         MoveStraight(); // Continue moving in the new direction
     }

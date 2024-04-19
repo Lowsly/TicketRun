@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
+
 public class Player : MonoBehaviour
 {
     public float moveSpeed; 
@@ -9,22 +11,27 @@ public class Player : MonoBehaviour
     public Sprite fullBar, emptyBar;
     public int maxHealth = 5, currentHealth, _money; 
     public Collider2D backgroundCollider;
-    public GameObject player;
+    public GameObject player, spawner, gameOver,pauseButton, pauseMenu;
     public bool _immune,dead;
     private SpriteRenderer _renderer;
+    private Animator _animator;
     private void Start()
     {
         UpdateHealthUI();
         _renderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-    if (Input.GetMouseButton(0))
-        {
-            transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
+                _animator.SetFloat("Speed", 1.3f);
+                transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
         }
+        else
+            _animator.SetFloat("Speed", 1);
+
     }
 
      private void OnTriggerEnter2D(Collider2D other)
@@ -33,7 +40,7 @@ public class Player : MonoBehaviour
         {
             if(!_immune)
             {
-                if (other.CompareTag("Enemy"))
+                if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
                 {
                     TakeDamage(1);
                 }
@@ -149,9 +156,14 @@ public class Player : MonoBehaviour
     }
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(0.25f);
-        Destroy(gameObject);
-        yield return null;
+        moveSpeed = 0;
+        yield return new WaitForSeconds(0.5f);
+        Destroy(spawner);
+        pauseMenu.SetActive(false);
+        pauseButton.SetActive(false);
+        gameOver.SetActive(true); 
+        
+
     }
 
 }

@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for scene loading
-using UnityEngine.UI; // Required for UI manipulation
+using UnityEngine.SceneManagement; 
+using UnityEngine.UI;
 
 public class Pausa : MonoBehaviour
 {
-    public GameObject pantallaPausa; // Assign this in the inspector
-    public Button pauseButton; // Assign this in the inspector
+    public GameObject pantallaPausa; 
+    public Button pauseButton; 
     private bool isPaused = false;
 
     public void TogglePause()
@@ -14,21 +14,21 @@ public class Pausa : MonoBehaviour
 
         if (isPaused)
         {
-            Time.timeScale = 0f; // Pause the game
-            pantallaPausa.SetActive(true); // Show the pause screen
-            if (pauseButton != null) pauseButton.interactable = false; // Disable the pause button
+            Time.timeScale = 0f; 
+            pantallaPausa.SetActive(true); 
+            if (pauseButton != null) pauseButton.interactable = false; 
         }
         else
         {
-            Time.timeScale = 1f; // Resume the game
-            pantallaPausa.SetActive(false); // Hide the pause screen
-            if (pauseButton != null) pauseButton.interactable = true; // Re-enable the pause button
+            Time.timeScale = 1f; 
+            pantallaPausa.SetActive(false); 
+            if (pauseButton != null) pauseButton.interactable = true; 
         }
     }
 
-    public void LoadSelectedScene()
+    public void LoadSelectedScene(string Scene)
     {
-        Time.timeScale = 1f; // Ensure the game's time scale is reset
-        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(Scene);
     }
 }

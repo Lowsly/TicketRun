@@ -9,6 +9,7 @@ TagManager:
   - Hitbox
   - Healing
   - Obstacle
+  - EnemyObstacle
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Player
   - Obstacle
   - Immune
-  - 
-  - 
+  - Raycast
+  - EnemyObstacle
   - 
   - 
   - 

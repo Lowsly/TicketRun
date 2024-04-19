@@ -3,7 +3,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float timeToSpawn = 2.0f;
+    private float timeToSpawn = 1f;
     private float timeSinceLastSpawn;
 
     public float difficulty = 1f;
@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
         {
             GenerateEntity();
             timeSinceLastSpawn = 0;
-            timeToSpawn = Mathf.Max(1/difficulty, 0.4f); 
+            timeToSpawn = 4; 
         }
         
         timeSinceLastDifficultyIncrease += Time.deltaTime;
@@ -47,7 +47,20 @@ public class Spawner : MonoBehaviour
 
     void GenerateEntity()
     {
-        if(Random.Range(0, 3) == 0 && difficulty > softCapDifficulty)
+        float bw = _bw/2;
+        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
+
+        int direction = Rand > 0 ? 180 : 0;
+       
+        GameObject Boat = Instantiate(prefabs[0], new Vector2(Random.Range(-bw, bw), Rand),Quaternion.Euler(new Vector3(0, 0, direction)));
+
+        float RandX =  Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
+
+        int direction2 = RandX > 0 ? 90 : -90;
+        
+        GameObject Trash = Instantiate(prefabs[1], new Vector2(RandX,Random.Range(-_bh/2, _bh/2)), Quaternion.Euler(new Vector3(0, 0, direction2)));
+        
+        /*if(Random.Range(0, 3) == 0 && difficulty > softCapDifficulty)
         {
             GameObject SharkLine2 = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
             AssignSharkBehaviorLine(SharkLine2);
@@ -60,7 +73,7 @@ public class Spawner : MonoBehaviour
         GameObject SharkChase = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
         AssignSharkBehaviorChase(SharkChase);
         GameObject SharkLine = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-        AssignSharkBehaviorLine(SharkLine);
+        AssignSharkBehaviorLine(SharkLine);*/
     }
 
     Vector3 RandomPosition()
