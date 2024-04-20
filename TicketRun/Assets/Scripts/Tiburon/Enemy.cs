@@ -1,18 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, IBehavioralEntity {
     public float speed = 5.0f;
     public float turnSpeed = 2.0f;
     private static BehaviorNode behaviorTree;
-    private Vector3 originalDirection;
     private List<Transform> obstacles = new List<Transform>(); // List to track multiple obstacles
     private List<Transform> earlyWarnings = new List<Transform>(); // List for early warning obstacles
     private Rigidbody2D rb;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        originalDirection = transform.up; // Initialize the original direction
         if (behaviorTree == null) {
             InitializeBehaviorTree();
         }
@@ -76,25 +74,24 @@ public class Enemy : MonoBehaviour {
         if (closestObstacle != null) {
             Vector3 obstacleDirection = closestObstacle.position - transform.position;
             float angleToObstacle = Vector3.SignedAngle(transform.up, obstacleDirection, Vector3.forward);
-            float turnAngle;
-            float angleStep = (Mathf.Abs(angleToObstacle) > 0) ? turnSpeed * Time.deltaTime : 0;
-            turnAngle = angleToObstacle > 0 ? -angleStep : angleStep;
+            float angleStep =  turnSpeed * Time.deltaTime;
+            float turnAngle = angleToObstacle > 0 ? -angleStep : angleStep;
             transform.Rotate(0, 0, turnAngle);
         }
         MoveStraight(); // Continue moving in the new direction
     }
 
-    private static void InitializeBehaviorTree() {
+     private static void InitializeBehaviorTree() {
         SelectorNode root = new SelectorNode();
         SequenceNode avoidSequence = new SequenceNode();
 
-        ConditionalNode checkObstacles = new ConditionalNode((enemy) => enemy.CheckForObstacles());
-        ActionNode avoidAction = new ActionNode((enemy) => { enemy.AvoidObstacle(); return true; });
+        ConditionalNode checkObstacles = new ConditionalNode((IBehavioralEntity entity) => entity.CheckForObstacles());
+        ActionNode avoidAction = new ActionNode((IBehavioralEntity entity) => { entity.AvoidObstacle(); return true; });
 
         avoidSequence.AddChild(checkObstacles);
         avoidSequence.AddChild(avoidAction);
 
-        ActionNode moveStraightAction = new ActionNode((enemy) => { enemy.MoveStraight(); return true; });
+        ActionNode moveStraightAction = new ActionNode((IBehavioralEntity entity) => { entity.MoveStraight(); return true; });
 
         root.AddChild(avoidSequence);
         root.AddChild(moveStraightAction);
