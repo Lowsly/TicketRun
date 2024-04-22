@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6917cd932a10a04aa0bafd215c7ee50
+guid: 5ec2d7f6dfe309b44856c36b43a7d1c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bote particulas_0
+      name: basura-particulas_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1057.5
-        width: 400
-        height: 352.5
+        y: 1600
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,41 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63f04549d25a13343b67748bda599d4e
-      internalID: -1819406119
+      spriteID: 0fc11cebf88fdc44b92fd9a0bbb483a6
+      internalID: 1651909939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_1
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 1057.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86962ea8f0bd7a940b795e24db59096d
-      internalID: 151075986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_2
+      name: basura-particulas_1
       rect:
         serializedVersion: 2
         x: 800
-        y: 1057.5
-        width: 400
-        height: 352.5
+        y: 1600
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +176,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 716fc52bd7579d94ba19363277917606
-      internalID: -1965186554
+      spriteID: bbf67ffd55c65924db02e1413a9aab44
+      internalID: 2027797168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_3
+      name: basura-particulas_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 800
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce0aa0e7be3dfd41999e108d9ac5f4f
+      internalID: -951891591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basura-particulas_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1600
+        width: 800
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4751d49918086a498855465771b3927
+      internalID: -213982180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basura-particulas_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 705.5
-        width: 400
-        height: 352.5
+        y: 800
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,41 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a24764af0b933943a88f597fc219888
-      internalID: 981101950
+      spriteID: 699700eea69f58640a20cc7bfc6490db
+      internalID: 795123003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_4
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 705.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 785188dbddd8a224a8af8db6ab1af7b3
-      internalID: -38604594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_5
+      name: basura-particulas_5
       rect:
         serializedVersion: 2
         x: 800
-        y: 705.5
-        width: 400
-        height: 352.5
+        y: 800
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,20 +260,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16b718994dda87647a5a2e683a902024
-      internalID: 423286009
+      spriteID: dc2f85d27c487e04aafd5e396757f184
+      internalID: 823195322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_6
+      name: basura-particulas_6
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 800
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69368a92635ac2141a8b5096bdc8c9f9
+      internalID: 921151822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basura-particulas_7
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 800
+        width: 800
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b88461d31533a4883ead088ce5b1ca
+      internalID: 772991368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basura-particulas_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 353.5
-        width: 400
-        height: 352.5
+        y: 0
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,41 +323,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2db9343f43161a4881dc6d6dbf84740
-      internalID: -664697680
+      spriteID: ccd9632367ab6d84e9702c26fe1cc114
+      internalID: -935490717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas_7
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 353.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e9a47de80ca62344858b3b9b526a891
-      internalID: 1604794946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_8
+      name: basura-particulas_9
       rect:
         serializedVersion: 2
         x: 800
-        y: 353.5
-        width: 400
-        height: 352.5
+        y: 0
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,71 +344,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7421825f38b3464c8dad67ff66a4def
-      internalID: -1909344781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f472f6481a149cf46a51778f347428e4
-      internalID: -1613507793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_10
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 1.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 685601661e5886844b5643e9a9049c17
-      internalID: -917671311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bote particulas_11
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 1.5
-        width: 400
-        height: 352.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d07801bd96bafb641b53423458054379
-      internalID: -701022408
+      spriteID: eed8ed33cf2869549b8df5e387dab1fd
+      internalID: -631139737
       vertices: []
       indices: 
       edges: []
@@ -403,18 +361,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bote particulas_9: -1613507793
-      bote particulas_3: 981101950
-      bote particulas_6: -664697680
-      bote particulas_4: -38604594
-      bote particulas_1: 151075986
-      bote particulas_7: 1604794946
-      bote particulas_0: -1819406119
-      bote particulas_8: -1909344781
-      bote particulas_5: 423286009
-      bote particulas_2: -1965186554
-      bote particulas_10: -917671311
-      bote particulas_11: -701022408
+      basura-particulas_5: 823195322
+      basura-particulas_7: 772991368
+      basura-particulas_2: -951891591
+      basura-particulas_3: -213982180
+      basura-particulas_1: 2027797168
+      basura-particulas_4: 795123003
+      basura-particulas_9: -631139737
+      basura-particulas_8: -935490717
+      basura-particulas_0: 1651909939
+      basura-particulas_6: 921151822
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

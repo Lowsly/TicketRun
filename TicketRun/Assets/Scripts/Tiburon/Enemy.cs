@@ -48,18 +48,6 @@ public class Enemy : MonoBehaviour, IBehavioralEntity {
         transform.up = newDirection;
     }
 
-    private Transform GetMostThreateningObstacle() {
-        Transform mostThreatening = null;
-        float minDistance = float.MaxValue;
-        foreach (var obs in obstacles) {
-            float distance = Vector3.Distance(transform.position, obs.position);
-            if (distance < minDistance) {
-                minDistance = distance;
-                mostThreatening = obs;
-            }
-        }
-        return mostThreatening;
-    }
 
     public bool CheckForObstacles() {
         return obstacles.Count > 0;
@@ -70,16 +58,29 @@ public class Enemy : MonoBehaviour, IBehavioralEntity {
     }
 
     public void AvoidObstacle() {
-        Transform closestObstacle = GetMostThreateningObstacle();
-        if (closestObstacle != null) {
-            Vector3 obstacleDirection = closestObstacle.position - transform.position;
-            float angleToObstacle = Vector3.SignedAngle(transform.up, obstacleDirection, Vector3.forward);
-            float angleStep =  turnSpeed * Time.deltaTime;
-            float turnAngle = angleToObstacle > 0 ? -angleStep : angleStep;
-            transform.Rotate(0, 0, turnAngle);
+    if (obstacles.Count > 0) {
+        Vector2 escapeDirection = Vector2.zero;
+        Vector2 currentPosition = transform.position;
+
+        // Calculate the average direction away from all obstacles
+        foreach (Transform obstacle in obstacles) {
+            Vector2 toObstacle = obstacle.position - transform.position;
+            escapeDirection -= toObstacle.normalized; // Subtract to move away from the obstacle
         }
-        MoveStraight(); // Continue moving in the new direction
+
+        escapeDirection /= obstacles.Count; // Average the direction
+        escapeDirection.Normalize(); // Normalize to get a direction vector
+
+        // Rotate towards the average escape direction
+        float targetAngle = Mathf.Atan2(escapeDirection.y, escapeDirection.x) * Mathf.Rad2Deg - 90;
+        float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle, turnSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Move in the new direction
+        MoveStraight();
     }
+}
+
 
      private static void InitializeBehaviorTree() {
         SelectorNode root = new SelectorNode();
@@ -97,5 +98,7 @@ public class Enemy : MonoBehaviour, IBehavioralEntity {
         root.AddChild(moveStraightAction);
 
         behaviorTree = root;
+    }
+    public void FacePlayer() {
     }
 }

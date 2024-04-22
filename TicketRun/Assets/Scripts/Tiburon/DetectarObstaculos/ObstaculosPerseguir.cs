@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-public class DetectarObstaculos : MonoBehaviour
+public class ObstaculosPerseguir : MonoBehaviour
 {
-    public Enemy parentEnemy; // Reference to the parent Enemy script
+    public Perseguir parentEnemy; // Reference to the parent Enemy script
 
     private void OnTriggerEnter2D(Collider2D other)
     {

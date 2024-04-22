@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b66d87c7a26cb448aae0bd29f3f3ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentEnemy: {fileID: 143289305940933747}
+  parentEnemy: {fileID: 0}
 --- !u!61 &143289304535670574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,9 +191,9 @@ GameObject:
   - component: {fileID: 4134646695882903147}
   - component: {fileID: 5099946271159635926}
   - component: {fileID: 6550387780529590106}
-  - component: {fileID: 143289305940933747}
+  - component: {fileID: 3220435752790675130}
   m_Layer: 6
-  m_Name: Tiburon
+  m_Name: Tiburon 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7546862803084719465}
-  m_LocalRotation: {x: -0, y: -0, z: 0.28710946, w: 0.9578978}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2871097, w: 0.9578977}
   m_LocalPosition: {x: 0.716, y: -2.134, z: 0}
   m_LocalScale: {x: 0.175, y: 0.175, z: 1}
   m_ConstrainProportionsScale: 0
@@ -259,7 +259,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 13
   m_Sprite: {fileID: 1229447442, guid: 05b2cb4562716f440a26fbae06224be6, type: 3}
-  m_Color: {r: 0.3065148, g: 0.36583433, b: 0.5660378, a: 1}
+  m_Color: {r: 0.3700605, g: 0.43604162, b: 0.6603774, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -401,7 +401,7 @@ PolygonCollider2D:
       - {x: 0.068170175, y: -0.35875708}
       - {x: 0.08032267, y: -0.30002394}
       - {x: 0.09189909, y: -0.29415607}
---- !u!114 &143289305940933747
+--- !u!114 &3220435752790675130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,11 +410,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7546862803084719465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d640f4188ff1abb4990c1edcaf694e00, type: 3}
+  m_Script: {fileID: 11500000, guid: 8729c7a34e04e7145b18d7858b10b672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  turnSpeed: 70
+  speed: 5
+  turnSpeed: 2
+  player: {fileID: 0}
 --- !u!1 &7783131586357738585
 GameObject:
   m_ObjectHideFlags: 0

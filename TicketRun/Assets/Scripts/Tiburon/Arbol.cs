@@ -5,7 +5,10 @@ public interface IBehavioralEntity
     bool CheckForObstacles();
     void MoveStraight();
     void AvoidObstacle();
+    void FacePlayer();
 }
+
+
 
 public abstract class BehaviorNode {
     public abstract bool Execute(IBehavioralEntity entity);

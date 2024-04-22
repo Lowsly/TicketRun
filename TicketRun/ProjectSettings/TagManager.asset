@@ -10,6 +10,7 @@ TagManager:
   - Healing
   - Obstacle
   - EnemyObstacle
+  - Eat
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03b12fef9c2fce14187873eb2c257298
+guid: c57cd398530c75d4c8a6857057e7d1fd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bote particulas-referencia_0
+      name: bote-correcion-particulas_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab4bd874cd3d0f4cba2de108cf5a961
-      internalID: -667976512
+      spriteID: 34b3494d80b28f24baeacd1c94d82e2c
+      internalID: 1783328801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_1
+      name: bote-correcion-particulas_1
       rect:
         serializedVersion: 2
         x: 400
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59ac941b3464b354ebdabc1c3d151e9e
-      internalID: -1787397801
+      spriteID: 33453b5d19cfe4d4d988a02e73578354
+      internalID: 101631872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_2
+      name: bote-correcion-particulas_2
       rect:
         serializedVersion: 2
         x: 800
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acd22c3aa6a93f44795587a31ac8f5af
-      internalID: -153538254
+      spriteID: f63dc7d0afadec94aba5c2d7c9560cf8
+      internalID: -975609553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_3
+      name: bote-correcion-particulas_3
       rect:
         serializedVersion: 2
         x: 0
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87a90d23d6357b948a670d468f8db2f5
-      internalID: 480177789
+      spriteID: 9900a9e87cbac8d4a9df4f891ca57960
+      internalID: -1372194623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_4
+      name: bote-correcion-particulas_4
       rect:
         serializedVersion: 2
         x: 400
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 779b76265a2c86e448beba88b8baa273
-      internalID: 1396975905
+      spriteID: 1534aec3c525c294c8c01b4f13a1fc60
+      internalID: -961259908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_5
+      name: bote-correcion-particulas_5
       rect:
         serializedVersion: 2
         x: 800
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf31e8606a6113a4d92e4c7024309126
-      internalID: -1183443782
+      spriteID: 45c4fe8bd3207d0448c802717151feea
+      internalID: -1675446470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_6
+      name: bote-correcion-particulas_6
       rect:
         serializedVersion: 2
         x: 0
@@ -281,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 082f73c3ed6cb97409684d78cf4f6cf6
-      internalID: 1291792034
+      spriteID: e7fbe9c3a770f3f4ca4ef4eb759949af
+      internalID: 521690263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_7
+      name: bote-correcion-particulas_7
       rect:
         serializedVersion: 2
         x: 400
@@ -302,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a6dabd217ae83249ba49330a22f6cad
-      internalID: 2041963462
+      spriteID: 3f7bacde63093c844b933c26a333b979
+      internalID: 2005409599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bote particulas-referencia_8
+      name: bote-correcion-particulas_8
       rect:
         serializedVersion: 2
         x: 800
@@ -323,8 +323,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8d7dc606f5ee5047ae23766bdb77dc7
-      internalID: -862042431
+      spriteID: 3f85b722f2c92a84da47a08f3a60c842
+      internalID: 870268050
       vertices: []
       indices: 
       edges: []
@@ -340,15 +340,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bote particulas-referencia_0: -667976512
-      bote particulas-referencia_3: 480177789
-      bote particulas-referencia_1: -1787397801
-      bote particulas-referencia_2: -153538254
-      bote particulas-referencia_4: 1396975905
-      bote particulas-referencia_8: -862042431
-      bote particulas-referencia_5: -1183443782
-      bote particulas-referencia_6: 1291792034
-      bote particulas-referencia_7: 2041963462
+      bote-correcion-particulas_5: -1675446470
+      bote-correcion-particulas_8: 870268050
+      bote-correcion-particulas_6: 521690263
+      bote-correcion-particulas_1: 101631872
+      bote-correcion-particulas_7: 2005409599
+      bote-correcion-particulas_2: -975609553
+      bote-correcion-particulas_0: 1783328801
+      bote-correcion-particulas_3: -1372194623
+      bote-correcion-particulas_4: -961259908
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
