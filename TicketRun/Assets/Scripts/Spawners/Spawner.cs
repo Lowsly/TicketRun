@@ -3,15 +3,15 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float timeToSpawn = 1f;
-    private float timeSinceLastSpawn;
+    private float[] timeToSpawn = { 4, 4, 4};
+    private float[] timeSinceLastSpawn = { 4, 4, 4};
 
     public float difficulty = 1f;
     private float softCapDifficulty = 1.5F;
     public float difficultyIncreaseRate = 0.025f; 
     private float difficultyIncreaseInterval = 2.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
-
+    private float bw;
 
 
     public Transform playerTransform;
@@ -22,17 +22,33 @@ public class Spawner : MonoBehaviour
     {
         _bh = background.transform.localScale.y;
         _bw = background.transform.localScale.x;
+        bw = _bw/2;
     }
 
     void Update()
     {
-        timeSinceLastSpawn += Time.deltaTime;
-
-        if (timeSinceLastSpawn >= timeToSpawn)
+        timeSinceLastSpawn[0] += Time.deltaTime;
+        if (timeSinceLastSpawn[0] >= timeToSpawn[0])
         {
-            GenerateEntity();
-            timeSinceLastSpawn = 0;
-            timeToSpawn = 4; 
+            GenerateShark();
+            timeSinceLastSpawn[0] = 0;
+            timeToSpawn[0] = 0.5f; 
+        }
+
+        timeSinceLastSpawn[1] += Time.deltaTime;
+        if (timeSinceLastSpawn[1] >= timeToSpawn[1])
+        {
+            GenerateBoat();
+            timeSinceLastSpawn[1] = 0;
+            timeToSpawn[1] = 20; 
+        }
+
+        timeSinceLastSpawn[2] += Time.deltaTime;
+        if (timeSinceLastSpawn[2] >= timeToSpawn[2])
+        {
+            GenerateTrash();
+            timeSinceLastSpawn[2] = 0;
+            timeToSpawn[2] = 4; 
         }
         
         timeSinceLastDifficultyIncrease += Time.deltaTime;
@@ -45,7 +61,34 @@ public class Spawner : MonoBehaviour
 
     }
 
-    void GenerateEntity()
+    void GenerateShark()
+    {
+        GameObject SharkLine = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
+        Enemy enemy = SharkLine.GetComponent<Enemy>();
+        int spawnQuadrant = DetermineSpawnLocation(SharkLine.transform.position); 
+        float angleDegrees = DetermineAngle(spawnQuadrant);
+        enemy.SetMoveDirection(angleDegrees);
+    }
+
+    void GenerateBoat()
+    {
+        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
+
+        int direction = Rand > 0 ? 180 : 0;
+       
+        GameObject Boat = Instantiate(prefabs[1], new Vector2(Random.Range(-bw, bw), Rand),Quaternion.Euler(new Vector3(0, 0, direction)));
+
+    }
+     void GenerateTrash()
+    {
+        float RandX =  Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
+
+        int direction2 = RandX > 0 ? 90 : -90;
+        
+        GameObject Trash = Instantiate(prefabs[2], new Vector2(RandX,Random.Range(-_bh/2, _bh/2)), Quaternion.Euler(new Vector3(0, 0, direction2)));
+        
+    }
+     void GenerateSharkv1()
     {
         float bw = _bw/2;
         float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;

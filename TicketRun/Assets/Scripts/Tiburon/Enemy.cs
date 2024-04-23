@@ -101,4 +101,9 @@ public class Enemy : MonoBehaviour, IBehavioralEntity {
     }
     public void FacePlayer() {
     }
+
+    public void SetMoveDirection(float direction)
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, direction));
+    }
 }
