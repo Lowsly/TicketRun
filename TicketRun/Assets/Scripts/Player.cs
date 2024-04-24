@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public Sprite fullBar, emptyBar;
     public int maxHealth = 5, currentHealth, _money; 
-    public Collider2D backgroundCollider;
+    public Collider2D backgroundCollider, UICollider;
     public GameObject player, spawner, gameOver,pauseButton, pauseMenu;
     public bool _immune,dead;
     private SpriteRenderer _renderer;
@@ -26,8 +26,17 @@ public class Player : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
-                _animator.SetFloat("Speed", 1.3f);
+            if(backgroundCollider.OverlapPoint(mousePosition) && !UICollider.OverlapPoint(mousePosition))
+            {
                 transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+            }
+            else 
+            {
+                transform.position = Vector2.Lerp(transform.position, new Vector2(mousePosition.x, UICollider.transform.position.y - UICollider.transform.localScale.y / 2), moveSpeed * Time.deltaTime);
+            }
+            float distance1 = Mathf.Abs(UICollider.transform.position.y - transform.position.y);
+                _animator.SetFloat("Speed", 1.3f);
+                
         }
         else
             _animator.SetFloat("Speed", 1);
@@ -40,7 +49,7 @@ public class Player : MonoBehaviour
         {
             if(!_immune)
             {
-                if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
+                if (other.CompareTag("Enemy") || other.CompareTag("Obstacle") || other.CompareTag("Basura"))
                 {
                     TakeDamage(1);
                 }

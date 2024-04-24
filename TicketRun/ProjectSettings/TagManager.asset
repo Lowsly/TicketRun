@@ -11,6 +11,7 @@ TagManager:
   - Obstacle
   - EnemyObstacle
   - Eat
+  - Basura
   layers:
   - Default
   - TransparentFX

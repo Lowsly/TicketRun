@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5223957951413661568}
   m_Layer: 9
   m_Name: basura_1
-  m_TagString: Obstacle
+  m_TagString: Basura
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
