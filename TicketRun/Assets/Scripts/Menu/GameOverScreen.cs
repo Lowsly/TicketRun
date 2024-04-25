@@ -8,8 +8,8 @@ public class GameOverScreen : MonoBehaviour
 
     //public void Setup //
 
-    public void RestartButton(){
-        SceneManager.LoadScene("Juego2");
+    public void RestartButton(string Scene){
+        SceneManager.LoadScene(Scene);
     }
 
     public void ExitButton(){
