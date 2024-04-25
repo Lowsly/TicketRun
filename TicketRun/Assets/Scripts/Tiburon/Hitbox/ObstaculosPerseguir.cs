@@ -8,12 +8,10 @@ public class ObstaculosPerseguir : MonoBehaviour
     {
         if (other.CompareTag("EnemyObstacle"))
         {
-            Debug.Log("Early warning obstacle detected by detector: " + other.name);
             parentEnemy.HandleEarlyWarningEnter(other.transform);
         }
         else if (other.CompareTag("Obstacle"))
         {
-            Debug.Log("Direct obstacle detected by detector: " + other.name);
             parentEnemy.HandleObstacleEnter(other.transform);
         }
     }

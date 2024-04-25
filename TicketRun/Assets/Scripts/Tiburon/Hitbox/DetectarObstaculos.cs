@@ -9,7 +9,6 @@ public class DetectarObstaculos : MonoBehaviour
     {
         if (other.CompareTag("Obstacle") || other.CompareTag("Basura"))
         {
-            Debug.Log("Obstacle detected: " + other.name);
             parentEnemy.HandleObstacleEnter(other.transform);
         }
     }
@@ -18,7 +17,6 @@ public class DetectarObstaculos : MonoBehaviour
     {
         if (other.CompareTag("Obstacle") || other.CompareTag("Basura"))
         {
-            Debug.Log("Obstacle left: " + other.name);
             parentEnemy.HandleObstacleExit(other.transform);
         }
     }
