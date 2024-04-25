@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1022985152720665877}
   - component: {fileID: 6119491286266093933}
   - component: {fileID: 9176404438243094159}
+  - component: {fileID: -6378682070928466508}
   m_Layer: 9
   m_Name: basura_3
   m_TagString: Basura
@@ -247,3 +248,16 @@ PolygonCollider2D:
       - {x: -0.040511664, y: 0.6376934}
       - {x: -0.23769273, y: 0.575899}
       - {x: -0.45425412, y: 0.28234375}
+--- !u!114 &-6378682070928466508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176404438243094152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4ff98082aa92a4f9b86bda699f51a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.2

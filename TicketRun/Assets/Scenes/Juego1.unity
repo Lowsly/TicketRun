@@ -2337,6 +2337,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bote (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8647462878016987375, guid: c19c1770f122f794d9a639bec8f2093b, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647462878016987375, guid: c19c1770f122f794d9a639bec8f2093b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7b0f04fcec89ea240a8ac2ecea2e3d0e, type: 2}
+    - target: {fileID: 8647462878016987375, guid: c19c1770f122f794d9a639bec8f2093b, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647462878016987375, guid: c19c1770f122f794d9a639bec8f2093b, type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c19c1770f122f794d9a639bec8f2093b, type: 3}
 --- !u!1 &1830833719
@@ -2923,6 +2939,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1600779817, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685517316732630620, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685517316732630620, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685517316732630620, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7b0f04fcec89ea240a8ac2ecea2e3d0e, type: 2}
+    - target: {fileID: 2685517316732630620, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685517316732630620, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685517316732630620, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3678501049347386226, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
       propertyPath: m_Name
       value: Basura
@@ -2975,7 +3019,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1600779817, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 38cf5f089162dcd46aa137ec8d05a20b, type: 3}
 --- !u!1001 &7250708067096751741
 PrefabInstance:

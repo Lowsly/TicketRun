@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovimientoAdelante : MonoBehaviour
+public class MovimientoDerecha : MonoBehaviour
 {
     public float speed = 0.2f;
     private Rigidbody2D rb;
@@ -9,9 +9,8 @@ public class MovimientoAdelante : MonoBehaviour
     {
          rb = GetComponent<Rigidbody2D>();
     }
-
     void Update()
     {
-        rb.velocity = transform.up * speed;
+        rb.velocity = transform.right * speed;
     }
 }
