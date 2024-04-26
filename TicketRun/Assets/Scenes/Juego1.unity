@@ -824,7 +824,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027250097}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -958,7 +958,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027250097}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2798,7 +2798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1278969915370234455, guid: cfab8e6f2711eae45bdd8ed24d50da66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.852
+      value: -2.67
       objectReference: {fileID: 0}
     - target: {fileID: 1278969915370234455, guid: cfab8e6f2711eae45bdd8ed24d50da66, type: 3}
       propertyPath: m_LocalPosition.z

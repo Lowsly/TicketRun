@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.5f, 13, 2 };
+    private float[] timeToSpawn = { 0.7f, 13, 2 };
     private float[] timeSinceLastSpawn = { 2, 14, 2 };
 
     public float difficulty = 1f;
@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < timeSinceLastSpawn.Length; i++)
         {
             timeSinceLastSpawn[i] += Time.deltaTime;
-            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/3)
+            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/10)
             {
                 switch (i)
                 {
