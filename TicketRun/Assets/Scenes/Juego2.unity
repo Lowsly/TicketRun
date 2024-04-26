@@ -1172,8 +1172,8 @@ MonoBehaviour:
   m_text: "\"Las tortugas marinas son guardianes del oc\xE9ano, protegerlas es proteger
     nuestro hogar.\","
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 455d93dd16f678142859ec193b712d83, type: 2}
-  m_sharedMaterial: {fileID: 6458551448215391739, guid: 455d93dd16f678142859ec193b712d83, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a7d42915c90cfdd43b00e8606b795221, type: 2}
+  m_sharedMaterial: {fileID: 2292476376529505545, guid: a7d42915c90cfdd43b00e8606b795221, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
