@@ -7,7 +7,7 @@ public class DetectarObstaculos : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle") || other.CompareTag("Basura"))
+        if (other.CompareTag("Obstacle"))
         {
             parentEnemy.HandleObstacleEnter(other.transform);
         }
@@ -15,7 +15,7 @@ public class DetectarObstaculos : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle") || other.CompareTag("Basura"))
+        if (other.CompareTag("Obstacle"))
         {
             parentEnemy.HandleObstacleExit(other.transform);
         }

@@ -12,6 +12,7 @@ TagManager:
   - EnemyObstacle
   - Eat
   - Basura
+  - ChaseShark
   layers:
   - Default
   - TransparentFX
