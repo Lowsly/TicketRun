@@ -4,13 +4,13 @@ using System.Collections.Generic;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.7f, 13, 2 };
-    private float[] timeSinceLastSpawn = { 2, 14, 2 };
+    private float[] timeToSpawn = { 0.5f, 7, 1.5f };
+    private float[] timeSinceLastSpawn = { 1, 1, 1 };
 
     public float difficulty = 1f;
-    private float softCapDifficulty = 1.5F;
-    public float difficultyIncreaseRate = 0.025f;
-    private float difficultyIncreaseInterval = 2.5f;
+    private float softCapDifficulty = 4F;
+    public float difficultyIncreaseRate = 0.05f;
+    private float difficultyIncreaseInterval = 5.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
 
     public Transform playerTransform;
@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < timeSinceLastSpawn.Length; i++)
         {
             timeSinceLastSpawn[i] += Time.deltaTime;
-            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/10)
+            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/8)
             {
                 switch (i)
                 {
@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
     float yCoord;
     do
     {
-        yCoord = Random.Range(-_bh / 2, _bh / 2);
+        yCoord = Random.Range(-_bh / 2, (_bh - 0.3f) / 2);
     } while (!IsYCoordAvailable(yCoord));
 
     yCooldowns[yCoord] = Time.time + yRangeCooldown; // Update cooldown for the Y coordinate
@@ -91,11 +91,15 @@ public class Spawner : MonoBehaviour
         int spawnQuadrant = DetermineSpawnLocation(SharkLine.transform.position); 
         float angleDegrees = DetermineAngle(spawnQuadrant);
         enemy.SetMoveDirection(angleDegrees);
+        if(Random.Range(0,10) == 0 && difficulty > 1.5f)
+        {
+            GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
+        }
     }
 
     void GenerateBoat()
     {
-        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
+        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.6f : (_bh/2)+0.6f;
 
         int direction = Rand > 0 ? 180 : 0;
        
@@ -144,23 +148,8 @@ public class Spawner : MonoBehaviour
 
     Vector3 RandomPosition()
     {
-        float bw = _bw/2;
-        if(difficulty < 1.5f)
-        {
-            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
-            return new Vector3(Random.Range(-bw, bw), Rand, 0);
-        }
-        else 
-        {
-            bool randomY = Random.Range(0, 2) == 0 ? true : false;
-            if(randomY)
-            {
-                float RandX =  Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
-                return new Vector3(RandX,Random.Range(-_bh/2, _bh/2), 0);
-            }
-            float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
-            return new Vector3(Random.Range(-bw, bw), Rand, 0);
-        }
+        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
+        return new Vector3(Random.Range(-bw, bw), Rand, 0);
     }
 
     void AssignSharkBehaviorChase (GameObject shark)

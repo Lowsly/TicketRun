@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 3043800430466595342}
   - component: {fileID: 1078184703478607765}
   - component: {fileID: 4134646695882903147}
-  - component: {fileID: 5099946271159635926}
   - component: {fileID: 6550387780529590106}
   - component: {fileID: 3220435752790675130}
   m_Layer: 6
@@ -310,19 +309,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5099946271159635926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7546862803084719465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee14b600548f08841a4aaf1630d01c36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiempo: 30
 --- !u!60 &6550387780529590106
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -415,7 +401,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   turnSpeed: 2
-  player: {fileID: 0}
 --- !u!1 &7783131586357738585
 GameObject:
   m_ObjectHideFlags: 0
