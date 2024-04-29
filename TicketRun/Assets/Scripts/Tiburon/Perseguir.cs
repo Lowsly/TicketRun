@@ -4,12 +4,15 @@ using UnityEngine;
 public class Perseguir : MonoBehaviour, IBehavioralEntity {
     public float speed = 5.0f;
     public float turnSpeed = 2.0f;
+    public float chaseDuration = 5.0f;
     private Transform player;  // Reference to the player's transform
     private static BehaviorNode behaviorTree;
     private List<Transform> earlyWarnings = new List<Transform>();
     private List<Transform> obstacles = new List<Transform>(); // List to track multiple obstacles
     private Rigidbody2D rb;
-     private bool isAvoidingObstacles = false;  
+    private bool isAvoidingObstacles = false;  
+    private float chaseTimer = 0.0f; 
+    private bool isChasing = true;
 
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,6 +26,13 @@ public class Perseguir : MonoBehaviour, IBehavioralEntity {
         behaviorTree.Execute(this);
         if (!isAvoidingObstacles && player != null) {
             FacePlayer();
+        }
+        if (isChasing) {
+            chaseTimer += Time.deltaTime;
+            if (chaseTimer >= chaseDuration) {
+                isChasing = false; // Stop chasing after the duration
+                rb.velocity = transform.up * speed; // Continue in the current direction
+            }
         }
     }
 
@@ -99,7 +109,8 @@ public void SmoothTransitionToChasing() {
 }
 
 public void FacePlayer() {
-    if (player != null) {
+    
+    if (player != null && isChasing) {
         Vector3 direction = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);

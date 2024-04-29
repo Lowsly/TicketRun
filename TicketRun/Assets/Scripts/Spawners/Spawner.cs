@@ -91,7 +91,8 @@ public class Spawner : MonoBehaviour
         int spawnQuadrant = DetermineSpawnLocation(SharkLine.transform.position); 
         float angleDegrees = DetermineAngle(spawnQuadrant);
         enemy.SetMoveDirection(angleDegrees);
-        if(Random.Range(0,10) == 0 && difficulty > 1.5f)
+        enemy.speed =  0.75f + Mathf.Log(difficulty,7);
+        if(Random.Range(0,20) == 0 && difficulty > 1.5f)
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
         }
