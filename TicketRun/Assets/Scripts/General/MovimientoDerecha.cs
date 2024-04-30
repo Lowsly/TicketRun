@@ -9,7 +9,7 @@ public class MovimientoDerecha : MonoBehaviour
     private float rotationDirection = 0;  // Determines rotation direction based on trigger position
     private float targetAlpha = 1.0f;     // Target alpha value for the sprite
     public SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
-    private int direction = 1;
+    private float direction = 1;
 
     void Start()
     {
@@ -49,7 +49,7 @@ public class MovimientoDerecha : MonoBehaviour
     }
     private void DetermineDirection(Collider2D other)
     {
-        direction = transform.position.x >= other.transform.position.x-0.03f ?  1 : -1;
+        direction = transform.position.x >= other.transform.position.x-0.03f ?  1 : -1.5f;
     }
     private void DetermineRotationDirection(Collider2D other)
     {

@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
         float angleDegrees = DetermineAngle(spawnQuadrant);
         enemy.SetMoveDirection(angleDegrees);
         enemy.speed =  0.75f + Mathf.Log(difficulty,7);
-        if(Random.Range(0,20) == 0 && difficulty > 1.5f)
+        if(Random.Range(0,15) == 0 && difficulty > 1.2f)
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
         }
