@@ -13,7 +13,7 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
     private static BehaviorNode behaviorTree;
     private List<Transform> obstacles = new List<Transform>();
     private float chaseTimer = 0f;
-    public float chaseDuration = 7.0f;
+    public float chaseDuration = 20.0f;
     private bool isChasing = true;
 
     void Awake() {
@@ -45,9 +45,8 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
     }
 
     public void MoveStraight() {
-        if (!isChasing) {
-            rb.velocity = transform.up * speed;
-        }
+        rb.velocity = transform.up * speed;
+
     }
 
     public void AvoidObstacle() {
@@ -56,24 +55,17 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
     }
 
     public void FacePlayer() {
-        if (isChasing) {
-            rb.velocity = transform.up * speed;
-            Vector3 direction = (player.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
-        }
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
+        rb.velocity = transform.up * speed;
     }
 
-    IEnumerator ChangeAlpha(float targetAlpha) {
-        float elapsedTime = 0.0f;
-        float duration = 3.5f; // Duration in seconds to change alpha
+     IEnumerator ChangeAlpha(float targetAlpha) {
         float startAlpha = spriteRenderer.color.a;
-
-        while (elapsedTime < duration) {
-            elapsedTime += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, 0.4f);
+        for (float t = 0; t < 1; t += Time.deltaTime / 1f) {
+            float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
-            particles.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
             yield return null;
         }
     }
@@ -105,6 +97,7 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
         if (!obstacles.Contains(other.transform)) {
             Eat.SetActive(false);
             obstacles.Add(other.transform);
+            AvoidObstacle();
         }
     }
 

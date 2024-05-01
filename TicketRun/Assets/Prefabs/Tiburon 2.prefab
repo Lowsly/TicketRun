@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1832210840
+--- !u!1 &561444316
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1832210841}
-  - component: {fileID: 1832210843}
-  - component: {fileID: 1832210842}
+  - component: {fileID: 561444317}
+  - component: {fileID: 561444319}
+  - component: {fileID: 561444318}
   m_Layer: 11
-  m_Name: Hit
+  m_Name: Eat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1832210841
+--- !u!4 &561444317
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832210840}
+  m_GameObject: {fileID: 561444316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,62 +33,35 @@ Transform:
   m_Father: {fileID: 1278969915370234455}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1832210843
-PolygonCollider2D:
+--- !u!70 &561444319
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832210840}
+  m_GameObject: {fileID: 561444316}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.23527445, y: 1.107811}
-      - {x: 0.19545482, y: 1.3945976}
-      - {x: 0.13897413, y: 1.5771781}
-      - {x: 0.07915152, y: 1.7130567}
-      - {x: -0.03718989, y: 1.7561915}
-      - {x: -0.15302321, y: 1.7161853}
-      - {x: -0.21113841, y: 1.608175}
-      - {x: -0.28826475, y: 1.3837639}
-      - {x: -0.30418807, y: 1.1195525}
-      - {x: -0.56953645, y: 0.8812969}
-      - {x: -0.3131386, y: 0.7782763}
-      - {x: -0.28527194, y: 0.24199945}
-      - {x: -0.20626506, y: 0.00042384863}
-      - {x: 0.13408607, y: 0.00042432547}
-      - {x: 0.22595195, y: 0.25309238}
-      - {x: 0.24608843, y: 0.7832821}
-      - {x: 0.53597057, y: 0.8886055}
---- !u!114 &1832210842
+  m_Offset: {x: -0.067389615, y: 1.5816926}
+  m_Size: {x: 1.2690161, y: 1.2690159}
+  m_Direction: 0
+--- !u!114 &561444318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832210840}
+  m_GameObject: {fileID: 561444316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e9cd15def409043a264429eb01e942, type: 3}
+  m_Script: {fileID: 11500000, guid: a4c3bd73d102f18489c819bf2359c507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Splash: {fileID: 724704489471278957, guid: 43c42970dd344f14286a25bf7f07e63b, type: 3}
-  Shark: {fileID: 7546862803084719465}
 --- !u!1 &143289304535670570
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051014094458159290}
   - component: {fileID: 143289304535670574}
-  - component: {fileID: 707646274}
+  - component: {fileID: 112390491}
   m_Layer: 11
   m_Name: TiburonRay
   m_TagString: Untagged
@@ -135,7 +108,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0044970512, y: 0.10767427}
+  m_Offset: {x: 0.011067122, y: 0.24855463}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -146,9 +119,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31468534, y: 0.49008536}
+  m_Size: {x: 0.37601346, y: 0.42332146}
   m_EdgeRadius: 0
---- !u!114 &707646274
+--- !u!114 &112390491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,10 +130,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 143289304535670570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9f12345e98ce04d990532e9080fe7b, type: 3}
+  m_Script: {fileID: 11500000, guid: ef66053033eeeab43be61979daa404ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentEnemy: {fileID: 3220435752790675130}
+  parentEnemy: {fileID: 112390484}
 --- !u!1 &537388708473607594
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +252,7 @@ GameObject:
   - component: {fileID: 1078184703478607765}
   - component: {fileID: 4134646695882903147}
   - component: {fileID: 6550387780529590106}
-  - component: {fileID: 3220435752790675130}
+  - component: {fileID: 112390484}
   m_Layer: 6
   m_Name: Tiburon 2
   m_TagString: Enemy
@@ -302,7 +275,7 @@ Transform:
   - {fileID: 274172308914548031}
   - {fileID: 8714873156307551472}
   - {fileID: 2051014094458159290}
-  - {fileID: 1832210841}
+  - {fileID: 561444317}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 33.37}
@@ -348,7 +321,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 13
   m_Sprite: {fileID: 1229447442, guid: 05b2cb4562716f440a26fbae06224be6, type: 3}
-  m_Color: {r: 0.3700605, g: 0.43604162, b: 0.6603774, a: 1}
+  m_Color: {r: 0.44482023, g: 0.49434012, b: 0.6603774, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -477,7 +450,7 @@ PolygonCollider2D:
       - {x: 0.068170175, y: -0.35875708}
       - {x: 0.08032267, y: -0.30002394}
       - {x: 0.09189909, y: -0.29415607}
---- !u!114 &3220435752790675130
+--- !u!114 &112390484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,12 +459,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7546862803084719465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8729c7a34e04e7145b18d7858b10b672, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c75e0bcc68f9e34cbdf4eafb33d8fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  turnSpeed: 2
-  chaseDuration: 5
+  speed: 0.9
+  turnSpeed: 1
+  spriteRenderer: {fileID: 3043800430466595342}
+  particles: {fileID: 8509054066036911546}
+  Eat: {fileID: 561444316}
+  chaseDuration: 50
 --- !u!1 &7783131586357738585
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +542,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 13
   m_Sprite: {fileID: -1079602014, guid: 05b2cb4562716f440a26fbae06224be6, type: 3}
-  m_Color: {r: 0.30588236, g: 0.3647059, b: 0.5647059, a: 1}
+  m_Color: {r: 0.44313726, g: 0.49411765, b: 0.65882355, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

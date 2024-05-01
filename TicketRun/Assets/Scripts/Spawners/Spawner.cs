@@ -96,6 +96,10 @@ public class Spawner : MonoBehaviour
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
         }
+        if(Random.Range(0,20) == 0 && difficulty > 1.3f)
+        {
+            GameObject SharkChase2 = Instantiate(prefabs[4], RandomPosition(), Quaternion.identity);
+        }
     }
 
     void GenerateBoat()
