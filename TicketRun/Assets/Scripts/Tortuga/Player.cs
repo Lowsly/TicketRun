@@ -124,10 +124,6 @@ public class Player : MonoBehaviour
             }
         
     }
-    public void Money(int cash)
-    {
-        _money+=cash;
-    }
     void UpdateHealthUI()
     {
         for (int i = 0; i < healthBars.Length; i++)

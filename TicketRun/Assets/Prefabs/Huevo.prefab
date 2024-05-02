@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2948675702699804306}
   - component: {fileID: 6956847234467488786}
   - component: {fileID: 1582701516}
+  - component: {fileID: 1582701517}
   m_Layer: 14
   m_Name: Huevo
   m_TagString: Huevo
@@ -139,13 +140,25 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0.01
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
+--- !u!114 &1582701517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341111214192337845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33accf6f69c84564abded87def80df67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4341111214442177947
 GameObject:
   m_ObjectHideFlags: 0

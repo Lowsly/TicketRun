@@ -4,26 +4,28 @@ using System.Collections.Generic;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.5f, 7, 1.5f };
-    private float[] timeSinceLastSpawn = { 1, 1, 1 };
+    private float[] timeToSpawn = { 0.5f, 7, 1.5f, 15, 20 };
+    private float[] timeSinceLastSpawn = { 1, 1, 1, 15, 20 };
 
     public float difficulty = 1f;
-    private float softCapDifficulty = 4F;
+    private float softCapDifficulty = 5F;
     public float difficultyIncreaseRate = 0.05f;
-    private float difficultyIncreaseInterval = 5.5f;
+    private float difficultyIncreaseInterval = 3.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
-    public Transform background;
+    public Transform background, objectZone;
 
     private Dictionary<float, float> yCooldowns = new Dictionary<float, float>();
     private float yRangeCooldown = 10.0f; // Cooldown in seconds for Y ranges
     private float allowedYRange = 0.1f; // This is the range within which Y values are considered the same for spawning purposes
 
-    private float _bh, _bw, bw;
+    private float _bh, _bw, bw, _ozw, _ozh;
     
     void Start()
     {
         _bh = background.transform.localScale.y;
         _bw = background.transform.localScale.x;
+        _ozw = objectZone.transform.localScale.x/2;
+        _ozh = objectZone.transform.localScale.y/2;
         bw = _bw/2;
     }
 
@@ -45,6 +47,8 @@ public class Spawner : MonoBehaviour
                     case 0: GenerateShark(); break;
                     case 1: GenerateBoat(); break;
                     case 2: GenerateTrash(); break;
+                    case 3: GenerateEgg(); break;
+                    case 4: GenerateLife(); break;
                 }
                 timeSinceLastSpawn[i] = 0;
             }
@@ -52,20 +56,20 @@ public class Spawner : MonoBehaviour
     }
 
     void GenerateTrash()
-{
-    float RandX = Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
-    int direction = RandX < 0 ? 0 : 180;
-    float yCoord;
-    do
     {
-        yCoord = Random.Range(-_bh / 2, (_bh - 0.3f) / 2);
-    } while (!IsYCoordAvailable(yCoord));
+        float RandX = Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
+        int direction = RandX < 0 ? 0 : 180;
+        float yCoord;
+        do
+        {
+            yCoord = Random.Range(-_bh / 2, (_bh - 0.3f) / 2);
+        } while (!IsYCoordAvailable(yCoord));
 
-    yCooldowns[yCoord] = Time.time + yRangeCooldown; // Update cooldown for the Y coordinate
+        yCooldowns[yCoord] = Time.time + yRangeCooldown; // Update cooldown for the Y coordinate
 
-    // Create the trash GameObject at the calculated position and rotation.
-    GameObject trash = Instantiate(prefabs[2], new Vector2(RandX, yCoord), Quaternion.Euler(0, 0, direction));
-}
+        // Create the trash GameObject at the calculated position and rotation.
+        GameObject trash = Instantiate(prefabs[2], new Vector2(RandX, yCoord), Quaternion.Euler(0, 0, direction));
+    }
     bool IsYCoordAvailable(float yCoord)
     {
         foreach (var entry in new List<float>(yCooldowns.Keys))
@@ -89,14 +93,23 @@ public class Spawner : MonoBehaviour
         int spawnQuadrant = DetermineSpawnLocation(SharkLine.transform.position); 
         float angleDegrees = DetermineAngle(spawnQuadrant);
         enemy.SetMoveDirection(angleDegrees);
-        enemy.speed =  0.75f + Mathf.Log(difficulty,7);
-        if(Random.Range(0,15) == 0 && difficulty > 1.2f)
+        enemy.speed =  0.75f + difficulty/10;
+        enemy.turnSpeed = 78.5f + difficulty*1.5f;
+        if(Random.Range(0,25) == 0 && difficulty > 1.2f)
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
+            Perseguir perseguir = SharkChase1.GetComponent<Perseguir>();
+            perseguir.speed = 1f + difficulty/10;
+            perseguir.turnSpeed = 1.5f + difficulty/2;
+            perseguir.chaseDuration = 6 + difficulty;
         }
-        if(Random.Range(0,20) == 0 && difficulty > 1.3f)
+        if(Random.Range(0,40) == 0 && difficulty > 1.3f)
         {
             GameObject SharkChase2 = Instantiate(prefabs[4], RandomPosition(), Quaternion.identity);
+            Oculto oculto = SharkChase2.GetComponent<Oculto>();
+            oculto.speed = 0.9f + difficulty/11;
+            oculto.turnSpeed = difficulty;
+            oculto.chaseDuration = 7 + difficulty;
         }
     }
 
@@ -107,7 +120,18 @@ public class Spawner : MonoBehaviour
         int direction = Rand > 0 ? 180 : 0;
        
         GameObject Boat = Instantiate(prefabs[1], new Vector2(Random.Range(-bw, bw), Rand),Quaternion.Euler(new Vector3(0, 0, direction)));
+        Bote bote = Boat.GetComponent<Bote>();
+        bote.speed = 0.6f + difficulty/10;
+        bote.turnSpeed = 29 + difficulty;
 
+    }
+    void GenerateEgg()
+    {  
+        Instantiate(prefabs[5], new Vector2(Random.Range(-_ozw, _ozw), Random.Range(-_ozh, _ozh)), Quaternion.identity);
+    }
+    void GenerateLife()
+    {  
+        Instantiate(prefabs[6], new Vector2(Random.Range(-_ozw, _ozw), Random.Range(-_ozh, _ozh)), Quaternion.identity);
     }
     void IncreaseDifficulty()
     {

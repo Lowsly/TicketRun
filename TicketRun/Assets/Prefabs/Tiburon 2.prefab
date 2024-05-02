@@ -467,7 +467,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3043800430466595342}
   particles: {fileID: 8509054066036911546}
   Eat: {fileID: 561444316}
-  chaseDuration: 50
+  chaseDuration: 12
 --- !u!1 &7783131586357738585
 GameObject:
   m_ObjectHideFlags: 0

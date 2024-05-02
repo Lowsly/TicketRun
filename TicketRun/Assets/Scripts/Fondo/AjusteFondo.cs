@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AjusteFondo : MonoBehaviour
 {
-    public GameObject background;
+    public float X, Y;
     private void Start()
     {
         float relacionDeAspectoPantalla = (float)Screen.width / Screen.height;
@@ -10,6 +10,6 @@ public class AjusteFondo : MonoBehaviour
         
         float escala = relacionDeAspectoPantalla / 0.5f;
             
-        background.transform.localScale = new Vector3(escala*2, escala*6, 1.0f);
+        this.gameObject.transform.localScale = new Vector3(escala*X, escala*Y, 1.0f);
     }
 }
