@@ -12,8 +12,6 @@ public class Spawner : MonoBehaviour
     public float difficultyIncreaseRate = 0.05f;
     private float difficultyIncreaseInterval = 5.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
-
-    public Transform playerTransform;
     public Transform background;
 
     private Dictionary<float, float> yCooldowns = new Dictionary<float, float>();
@@ -120,36 +118,6 @@ public class Spawner : MonoBehaviour
             timeSinceLastDifficultyIncrease = 0;
         }
     }
-     void GenerateSharkv1()
-    {
-        float bw = _bw/2;
-        float Rand =  Random.Range(0, 2) == 0 ? -(_bh/2)-0.4f : (_bh/2)+0.4f;
-
-        int direction = Rand > 0 ? 180 : 0;
-       
-        GameObject Boat = Instantiate(prefabs[0], new Vector2(Random.Range(-bw, bw), Rand),Quaternion.Euler(new Vector3(0, 0, direction)));
-
-        float RandX =  Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
-
-        int direction2 = RandX > 0 ? 90 : -90;
-        
-        GameObject Trash = Instantiate(prefabs[1], new Vector2(RandX,Random.Range(-_bh/2, _bh/2)), Quaternion.Euler(new Vector3(0, 0, direction2)));
-        
-        /*if(Random.Range(0, 3) == 0 && difficulty > softCapDifficulty)
-        {
-            GameObject SharkLine2 = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-            AssignSharkBehaviorLine(SharkLine2);
-        }
-        if(Random.Range(0, 4) == 0 && difficulty > softCapDifficulty)
-        {
-            GameObject SharkSneaky = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-            AssignSharkSneaky(SharkSneaky);
-        }
-        GameObject SharkChase = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-        AssignSharkBehaviorChase(SharkChase);
-        GameObject SharkLine = Instantiate(prefabs[0], RandomPosition(), Quaternion.identity);
-        AssignSharkBehaviorLine(SharkLine);*/
-    }
 
     Vector3 RandomPosition()
     {
@@ -157,39 +125,7 @@ public class Spawner : MonoBehaviour
         return new Vector3(Random.Range(-bw, bw), Rand, 0);
     }
 
-    void AssignSharkBehaviorChase (GameObject shark)
-    {
-        var chaseBehavior = shark.AddComponent<PerseguirTortuga>();
-        chaseBehavior.playerTransform = playerTransform;
-        chaseBehavior.speed =  0.9f + Mathf.Log(difficulty,7);
-    }
-    void AssignSharkBehaviorLine(GameObject shark)
-    {    
-        int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
-        float angleDegrees = DetermineAngle(spawnQuadrant);
 
-        var straightLineBehavior = shark.AddComponent<LineaRecta>();
-        straightLineBehavior.SetMoveDirection(angleDegrees);
-        straightLineBehavior.difficulty = difficulty;
-
-        straightLineBehavior.speed =  0.75f + Mathf.Log(difficulty,7);
-        
-        shark.AddComponent<GirarCuerpo>();
-    }
-
-    void AssignSharkSneaky(GameObject shark)
-    {    
-        int spawnQuadrant = DetermineSpawnLocation(shark.transform.position); 
-        float angleDegrees = DetermineAngle(spawnQuadrant);
-
-        var sneakyBehaviour = shark.AddComponent<MovimientoSigiloso>();
-        sneakyBehaviour.SetMoveDirection(angleDegrees);
-        sneakyBehaviour.centerPoint = playerTransform;
-        //sneakyBehaviour.difficulty = difficulty;
-
-        //sneakyBehaviour.speed =  0.75f + Mathf.Log(difficulty+0.001f,4);
-
-    }
 
     float DetermineAngle(int spawnQuadrant)
     {

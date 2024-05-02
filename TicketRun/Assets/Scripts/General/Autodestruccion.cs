@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class Autodestruccion : MonoBehaviour
 {
-    public float Tiempo;
-    void Start()
+    // Update is called once per frame
+    void Autodestruir()
     {
-        Invoke("AutoDestruir", Tiempo);
-    }
-
-    void AutoDestruir()
-    {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }

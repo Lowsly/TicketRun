@@ -13,6 +13,9 @@ TagManager:
   - Eat
   - Basura
   - ChaseShark
+  - Objeto
+  - Huevo
+  - Maw
   layers:
   - Default
   - TransparentFX
@@ -28,9 +31,9 @@ TagManager:
   - Raycast
   - EnemyObstacle
   - ZonaMuerte
-  - 
-  - 
-  - 
+  - Objeto
+  - NoComida
+  - Comer
   - 
   - 
   - 

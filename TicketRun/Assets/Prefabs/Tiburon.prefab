@@ -562,9 +562,9 @@ GameObject:
   - component: {fileID: 3630934548302208160}
   - component: {fileID: 7320946893763263958}
   - component: {fileID: 4743273194033750864}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Eat
-  m_TagString: Untagged
+  m_TagString: Maw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,12 +594,12 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.067389615, y: 1.5816926}
-  m_Size: {x: 1.2690161, y: 1.2690159}
-  m_Direction: 0
+  m_Offset: {x: -0.07043265, y: 1.8039765}
+  m_Size: {x: 0.9367234, y: 0.6049394}
+  m_Direction: 1
 --- !u!114 &4743273194033750864
 MonoBehaviour:
   m_ObjectHideFlags: 0

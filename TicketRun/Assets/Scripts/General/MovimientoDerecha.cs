@@ -30,7 +30,7 @@ public class MovimientoDerecha : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle")) {
+        if (other.CompareTag("Obstacle") || other.CompareTag("Enemy")) {
             isColliding = true;
             DetermineRotationDirection(other);
             DetermineDirection(other);
@@ -41,7 +41,7 @@ public class MovimientoDerecha : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle")) {
+        if (other.CompareTag("Obstacle") || other.CompareTag("Enemy")) {
             isColliding = false;
             targetAlpha = 1.0f;  // Restore alpha to full when exiting the trigger
             direction = 1; 
