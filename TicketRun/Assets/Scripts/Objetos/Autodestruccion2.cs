@@ -4,6 +4,8 @@ using UnityEngine;
 public class Autodestruccion2 : MonoBehaviour
 {
    private SpriteRenderer _renderer;
+
+   public int timer;
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
@@ -11,7 +13,7 @@ public class Autodestruccion2 : MonoBehaviour
     }
     IEnumerator Self()
     {
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(timer);
         
 
         for (int i = 0; i < 6; i++)

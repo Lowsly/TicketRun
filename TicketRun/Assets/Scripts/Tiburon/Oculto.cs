@@ -51,7 +51,7 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
 
     public void AvoidObstacle() {
         gameObject.layer = LayerMask.NameToLayer("Immune");
-        StartCoroutine(ChangeAlpha(0.1f));
+        StartCoroutine(ChangeAlpha(0.1f, "Immune"));
     }
 
     public void FacePlayer() {
@@ -61,13 +61,15 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
         rb.velocity = transform.up * speed;
     }
 
-     IEnumerator ChangeAlpha(float targetAlpha) {
+     IEnumerator ChangeAlpha(float targetAlpha, string Layer) {
         float startAlpha = spriteRenderer.color.a;
         for (float t = 0; t < 1; t += Time.deltaTime / 1f) {
             float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
-            yield return null;
+             yield return null;
         }
+        gameObject.layer = LayerMask.NameToLayer(Layer);
+        yield return null;
     }
 
     private static void InitializeBehaviorTree() {
@@ -103,12 +105,11 @@ public class Oculto : MonoBehaviour, IBehavioralEntity {
 
     public void ExitObstacle(Collider2D other) {
             obstacles.Remove(other.transform);
-            StartCoroutine(ChangeAlpha(1.0f));
+            StartCoroutine(ChangeAlpha(1.0f, "Enemy"));
             if (obstacles.Count == 0) {
                 Eat.SetActive(true);
-                gameObject.layer = LayerMask.NameToLayer("Enemy");
                 StopAllCoroutines();
-                StartCoroutine(ChangeAlpha(1.0f));
+                StartCoroutine(ChangeAlpha(1.0f, "Enemy"));
             }
     }
 }

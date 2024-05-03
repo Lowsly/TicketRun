@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.5f, 7, 1.5f, 15, 20 };
-    private float[] timeSinceLastSpawn = { 1, 1, 1, 15, 20 };
+    private float[] timeToSpawn = { 0.55f, 7, 2f, 10, 20 };
+    private float[] timeSinceLastSpawn = { 0, 0, 0, 1, 1 };
 
     public float difficulty = 1f;
     private float softCapDifficulty = 5F;
@@ -13,10 +13,11 @@ public class Spawner : MonoBehaviour
     private float difficultyIncreaseInterval = 3.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
     public Transform background, objectZone;
-
+    public Player player;
+    public Background backgroundSpeed;
     private Dictionary<float, float> yCooldowns = new Dictionary<float, float>();
     private float yRangeCooldown = 10.0f; // Cooldown in seconds for Y ranges
-    private float allowedYRange = 0.1f; // This is the range within which Y values are considered the same for spawning purposes
+    private float allowedYRange = 0.2f; // This is the range within which Y values are considered the same for spawning purposes
 
     private float _bh, _bw, bw, _ozw, _ozh;
     
@@ -57,7 +58,7 @@ public class Spawner : MonoBehaviour
 
     void GenerateTrash()
     {
-        float RandX = Random.Range(0, 2) == 0 ? -bw-0.4f : bw+0.4f;
+        float RandX = Random.Range(0, 2) == 0 ? -bw-0.19f : bw+0.19f;
         int direction = RandX < 0 ? 0 : 180;
         float yCoord;
         do
@@ -140,6 +141,8 @@ public class Spawner : MonoBehaviour
         {
             difficulty = Mathf.Min(difficulty + difficultyIncreaseRate, softCapDifficulty);
             timeSinceLastDifficultyIncrease = 0;
+            backgroundSpeed.scrollSpeed = difficulty/10;
+            player.animatorSpeed = difficulty/10;
         }
     }
 

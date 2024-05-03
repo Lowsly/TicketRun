@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 1027250103}
   - component: {fileID: 1027250104}
   - component: {fileID: 1027250105}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Tortuga
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1593,7 +1593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027250097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -0.852, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.11, y: 0.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1613,6 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 12
+  animatorSpeed: 0
   healthBars:
   - {fileID: 130128775}
   - {fileID: 1154787681}
@@ -2030,8 +2031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110899893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2249, z: 0}
-  m_LocalScale: {x: 1.3600663, y: 1.8347025, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3743, z: 0}
+  m_LocalScale: {x: 1.3600663, y: 1.5360129, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 452443520}
@@ -4891,6 +4892,8 @@ MonoBehaviour:
   difficultyIncreaseRate: 0.025
   background: {fileID: 772192626}
   objectZone: {fileID: 1110899894}
+  player: {fileID: 1027250103}
+  backgroundSpeed: {fileID: 1392497595}
 --- !u!1 &1839067916
 GameObject:
   m_ObjectHideFlags: 0

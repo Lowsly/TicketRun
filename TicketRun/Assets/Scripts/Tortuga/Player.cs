@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed; 
+    public float moveSpeed, animatorSpeed = 0; 
     public Image[] healthBars;
 
     public Sprite fullBar, emptyBar;
@@ -34,12 +34,19 @@ public class Player : MonoBehaviour
             {
                 transform.position = Vector2.Lerp(transform.position, new Vector2(mousePosition.x, UICollider.transform.position.y - UICollider.transform.localScale.y / 2), moveSpeed * Time.deltaTime);
             }
-            float distance1 = Mathf.Abs(UICollider.transform.position.y - transform.position.y);
-                _animator.SetFloat("Speed", 1.3f);
+            if(mousePosition.y>=transform.position.y-0.1f)
+            {
+                _animator.SetFloat("Speed", 1.2f + animatorSpeed);
+            }
+            else 
+            {
+                 _animator.SetFloat("Speed", 0.4f);
+            }
+                
                 
         }
         else
-            _animator.SetFloat("Speed", 1);
+            _animator.SetFloat("Speed", 0.9f + animatorSpeed);
 
     }
 
@@ -57,6 +64,7 @@ public class Player : MonoBehaviour
         
             if (other.CompareTag("Healing"))
             {
+                Destroy(other.gameObject);
                 Heal(1);
             }
         }
@@ -163,7 +171,7 @@ public class Player : MonoBehaviour
     {
         moveSpeed = 0;
         yield return new WaitForSeconds(0.5f);
-        Destroy(spawner);
+        spawner.SetActive(false);
         pauseMenu.SetActive(false);
         pauseButton.SetActive(false);
         gameOver.SetActive(true); 

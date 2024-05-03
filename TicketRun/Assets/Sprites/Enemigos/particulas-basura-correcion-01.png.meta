@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ec2d7f6dfe309b44856c36b43a7d1c2
+guid: c34156d94f204cb4bae353fb6a8221cc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: basura-particulas_0
+      name: particulas-basura-correcion-01_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fc11cebf88fdc44b92fd9a0bbb483a6
-      internalID: 1651909939
+      spriteID: 02d128cd4ab27d64086f1f94a7f2f34f
+      internalID: 335714142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_1
+      name: particulas-basura-correcion-01_1
       rect:
         serializedVersion: 2
         x: 800
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbf67ffd55c65924db02e1413a9aab44
-      internalID: 2027797168
+      spriteID: aabd9ee431a0da243807d581cedaabe6
+      internalID: 1889042954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_2
+      name: particulas-basura-correcion-01_2
       rect:
         serializedVersion: 2
         x: 1600
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ce0aa0e7be3dfd41999e108d9ac5f4f
-      internalID: -951891591
+      spriteID: 79e7b6f49619a5e4f92ea020e3041483
+      internalID: 1774292671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_3
+      name: particulas-basura-correcion-01_3
       rect:
         serializedVersion: 2
         x: 2400
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4751d49918086a498855465771b3927
-      internalID: -213982180
+      spriteID: 36eb3fbc3c3e37e45b1bfcc35d91ba3b
+      internalID: 1855907480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_4
+      name: particulas-basura-correcion-01_4
       rect:
         serializedVersion: 2
         x: 0
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699700eea69f58640a20cc7bfc6490db
-      internalID: 795123003
+      spriteID: 66ecb00d05632f24d82f7e9948e4db10
+      internalID: 1934189035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_5
+      name: particulas-basura-correcion-01_5
       rect:
         serializedVersion: 2
         x: 800
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2f85d27c487e04aafd5e396757f184
-      internalID: 823195322
+      spriteID: 1101d365e71573e438fd7a07fa2145a5
+      internalID: -1341979813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_6
+      name: particulas-basura-correcion-01_6
       rect:
         serializedVersion: 2
         x: 1600
@@ -281,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69368a92635ac2141a8b5096bdc8c9f9
-      internalID: 921151822
+      spriteID: e8164364bd950a5499c1e1ec52407301
+      internalID: 734419957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_7
+      name: particulas-basura-correcion-01_7
       rect:
         serializedVersion: 2
         x: 2400
@@ -302,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96b88461d31533a4883ead088ce5b1ca
-      internalID: 772991368
+      spriteID: d9f8293e7b8152a46b50af7b20046442
+      internalID: 332773826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_8
+      name: particulas-basura-correcion-01_8
       rect:
         serializedVersion: 2
         x: 0
@@ -323,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccd9632367ab6d84e9702c26fe1cc114
-      internalID: -935490717
+      spriteID: 52fd45bd5ef8c0d4aaf8c7b4bd8b8967
+      internalID: -1402092963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basura-particulas_9
+      name: particulas-basura-correcion-01_9
       rect:
         serializedVersion: 2
         x: 800
@@ -344,8 +344,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eed8ed33cf2869549b8df5e387dab1fd
-      internalID: -631139737
+      spriteID: 1e888428a2c3c9742b77fd802af9c6c4
+      internalID: 1428365623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particulas-basura-correcion-01_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d803abb3f559a4e42b30bc8c292c8cb6
+      internalID: -1241370162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: particulas-basura-correcion-01_11
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de60240027360744b7c6ea8e26cc9d9
+      internalID: -40609532
       vertices: []
       indices: 
       edges: []
@@ -361,16 +403,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      basura-particulas_5: 823195322
-      basura-particulas_7: 772991368
-      basura-particulas_2: -951891591
-      basura-particulas_3: -213982180
-      basura-particulas_1: 2027797168
-      basura-particulas_4: 795123003
-      basura-particulas_9: -631139737
-      basura-particulas_8: -935490717
-      basura-particulas_0: 1651909939
-      basura-particulas_6: 921151822
+      particulas-basura-correcion-01_0: 335714142
+      particulas-basura-correcion-01_8: -1402092963
+      particulas-basura-correcion-01_6: 734419957
+      particulas-basura-correcion-01_7: 332773826
+      particulas-basura-correcion-01_1: 1889042954
+      particulas-basura-correcion-01_5: -1341979813
+      particulas-basura-correcion-01_2: 1774292671
+      particulas-basura-correcion-01_10: -1241370162
+      particulas-basura-correcion-01_4: 1934189035
+      particulas-basura-correcion-01_9: 1428365623
+      particulas-basura-correcion-01_11: -40609532
+      particulas-basura-correcion-01_3: 1855907480
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
