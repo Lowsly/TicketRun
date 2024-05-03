@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     }
 
-     private void OnTriggerEnter2D(Collider2D other)
+     private void OnTriggerStay2D(Collider2D other)
     {
         if(!dead)
         {
@@ -171,7 +171,8 @@ public class Player : MonoBehaviour
     {
         moveSpeed = 0;
         yield return new WaitForSeconds(0.5f);
-        spawner.SetActive(false);
+        Spawner spawnerScript = spawner.GetComponent<Spawner>();
+        spawnerScript.Dead();
         pauseMenu.SetActive(false);
         pauseButton.SetActive(false);
         gameOver.SetActive(true); 

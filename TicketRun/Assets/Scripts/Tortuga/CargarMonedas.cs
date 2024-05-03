@@ -1,15 +1,15 @@
 using UnityEngine;
-using TMPro; // Namespace for TextMeshPro
+using TMPro;
 
 public class CargarMonedas : MonoBehaviour
 {
-    public TextMeshProUGUI eggCounterText; // Reference to the TextMeshProUGUI component
-    private int eggsCollected = 0; // Default value for eggs collected
+    public TextMeshProUGUI eggCounterText; 
+    private int eggsCollected = 0; 
 
     void Start()
     {
-        LoadEggs(); // Load eggs collected from PlayerPrefs when the game starts
-        UpdateEggDisplay(); // Update the TextMeshPro with the loaded value
+        LoadEggs();
+        UpdateEggDisplay(); 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,9 +26,8 @@ public class CargarMonedas : MonoBehaviour
 
     void SaveEggs()
     {
-        PlayerPrefs.SetInt("EggsCollected", eggsCollected); // Save the egg count to PlayerPrefs
-        PlayerPrefs.Save(); // Make sure to save PlayerPrefs changes to disk
-        Debug.Log("Eggs saved: " + eggsCollected);
+        PlayerPrefs.SetInt("EggsCollected", eggsCollected); 
+        PlayerPrefs.Save(); 
     }
 
     void LoadEggs()

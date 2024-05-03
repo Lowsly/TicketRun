@@ -1,16 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.55f, 7, 2f, 10, 20 };
+    private float[] timeToSpawn = { 0.55f, 7, 1.6f, 10, 20 };
     private float[] timeSinceLastSpawn = { 0, 0, 0, 1, 1 };
 
     public float difficulty = 1f;
     private float softCapDifficulty = 5F;
     public float difficultyIncreaseRate = 0.05f;
-    private float difficultyIncreaseInterval = 3.5f;
+    private float difficultyIncreaseInterval = 2.5f;
     private float timeSinceLastDifficultyIncrease = 0.0f;
     public Transform background, objectZone;
     public Player player;
@@ -18,7 +19,8 @@ public class Spawner : MonoBehaviour
     private Dictionary<float, float> yCooldowns = new Dictionary<float, float>();
     private float yRangeCooldown = 10.0f; // Cooldown in seconds for Y ranges
     private float allowedYRange = 0.2f; // This is the range within which Y values are considered the same for spawning purposes
-
+    private float timeAlive;
+    private bool isAlive = true;
     private float _bh, _bw, bw, _ozw, _ozh;
     
     void Start()
@@ -34,6 +36,8 @@ public class Spawner : MonoBehaviour
     {
         UpdateSpawns();
         IncreaseDifficulty();
+        if(isAlive)
+        timeAlive+=Time.deltaTime;
     }
 
     void UpdateSpawns()
@@ -41,7 +45,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < timeSinceLastSpawn.Length; i++)
         {
             timeSinceLastSpawn[i] += Time.deltaTime;
-            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/8)
+            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/7)
             {
                 switch (i)
                 {
@@ -55,7 +59,21 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
+    public void Dead()
+    {
+        isAlive= false;
+        PlayerPrefs.SetInt("TimeAliveCurrent", Mathf.FloorToInt(timeAlive));
+        if(PlayerPrefs.GetInt("TimeAliveCurrent") > PlayerPrefs.GetInt("TimeAliveMax",0))
+        {
+            PlayerPrefs.SetInt("TimeAliveMax", PlayerPrefs.GetInt("TimeAliveCurrent"));
+            UnityEngine.Debug.Log(PlayerPrefs.GetInt("TimeAliveMax", 0));
+            UnityEngine.Debug.Log(PlayerPrefs.GetInt("TimeAliveCurrent", 0));
+            PlayerPrefs.SetInt("FirstTime", 1);
+            PlayerPrefs.Save();
+           
+        }
+        this.gameObject.SetActive(false);
+    }
     void GenerateTrash()
     {
         float RandX = Random.Range(0, 2) == 0 ? -bw-0.19f : bw+0.19f;
