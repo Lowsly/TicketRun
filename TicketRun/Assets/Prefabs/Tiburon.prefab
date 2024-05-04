@@ -362,8 +362,8 @@ GameObject:
   - component: {fileID: 7750790814736508498}
   - component: {fileID: 6277605718366299434}
   - component: {fileID: 7705425067194763327}
-  - component: {fileID: 5703497001982497957}
   - component: {fileID: 5415568783369943843}
+  - component: {fileID: 7538337421063161118}
   m_Layer: 6
   m_Name: Tiburon
   m_TagString: Enemy
@@ -484,7 +484,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5703497001982497957
+--- !u!114 &5415568783369943843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8526893525610503627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d640f4188ff1abb4990c1edcaf694e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.2
+  turnSpeed: 80
+--- !u!60 &7538337421063161118
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,48 +523,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.7229042, y: 0.864389}
-      - {x: -0.6143812, y: 0.9571528}
-      - {x: -0.476648, y: 1.043246}
-      - {x: -0.3189526, y: 1.1038879}
-      - {x: -0.29577035, y: 1.3812956}
-      - {x: -0.2394814, y: 1.5588398}
-      - {x: -0.101925336, y: 1.7365419}
-      - {x: -0.012714453, y: 1.7473803}
-      - {x: 0.07799588, y: 1.7122155}
-      - {x: 0.14545788, y: 1.5841955}
-      - {x: 0.2080559, y: 1.3973801}
-      - {x: 0.22574228, y: 1.1099879}
-      - {x: 0.41062695, y: 1.039234}
-      - {x: 0.6063798, y: 0.9095766}
-      - {x: 0.6865092, y: 0.8130906}
-      - {x: 0.67057717, y: 0.77004033}
-      - {x: 0.5977422, y: 0.7859417}
-      - {x: 0.5515941, y: 0.78571343}
-      - {x: 0.2500855, y: 0.8035724}
-      - {x: 0.23425058, y: 0.36732313}
-      - {x: 0.143204, y: 0.025663406}
-      - {x: -0.049764767, y: -0.10119355}
-      - {x: -0.21270879, y: 0.029654361}
-      - {x: -0.295171, y: 0.23345281}
-      - {x: -0.32029638, y: 0.7951104}
-      - {x: -0.58832264, y: 0.7965564}
-      - {x: -0.72592235, y: 0.76064485}
-      - {x: -0.762608, y: 0.7904751}
---- !u!114 &5415568783369943843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8526893525610503627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d640f4188ff1abb4990c1edcaf694e00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.2
-  turnSpeed: 80
+    - - {x: -0.0065708607, y: 1.7503234}
+      - {x: -0.10137274, y: 1.7443775}
+      - {x: -0.18859744, y: 1.6311823}
+      - {x: -0.25905293, y: 1.4703752}
+      - {x: -0.30971652, y: 1.1143514}
+      - {x: -0.2925443, y: 0.22469568}
+      - {x: -0.03650997, y: -0.05374188}
+      - {x: 0.22487625, y: 0.27918833}
+      - {x: 0.22731932, y: 1.1145861}
+      - {x: 0.18337241, y: 1.4551933}
+      - {x: 0.12067058, y: 1.6166537}
+      - {x: 0.076728076, y: 1.6991311}
 --- !u!1 &9132510077294371799
 GameObject:
   m_ObjectHideFlags: 0

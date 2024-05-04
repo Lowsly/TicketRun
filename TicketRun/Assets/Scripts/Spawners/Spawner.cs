@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.55f, 7, 1.6f, 10, 20 };
+    private float[] timeToSpawn = { 0.54f, 7, 1.5f, 10, 20 };
     private float[] timeSinceLastSpawn = { 0, 0, 0, 1, 1 };
 
     public float difficulty = 1f;
@@ -22,6 +23,8 @@ public class Spawner : MonoBehaviour
     private float timeAlive;
     private bool isAlive = true;
     private float _bh, _bw, bw, _ozw, _ozh;
+    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu, newRecord;
+    public TextMeshProUGUI time, bestTime;
     
     void Start()
     {
@@ -34,10 +37,12 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        UpdateSpawns();
-        IncreaseDifficulty();
         if(isAlive)
-        timeAlive+=Time.deltaTime;
+        {
+            UpdateSpawns();
+            IncreaseDifficulty();
+            timeAlive+=Time.deltaTime;
+        }
     }
 
     void UpdateSpawns()
@@ -62,17 +67,28 @@ public class Spawner : MonoBehaviour
     public void Dead()
     {
         isAlive= false;
+        pauseMenu.SetActive(false);
+        pauseButton.SetActive(false);
+        gameOver.SetActive(true); 
+        optionsMenu.SetActive(false);
         PlayerPrefs.SetInt("TimeAliveCurrent", Mathf.FloorToInt(timeAlive));
-        if(PlayerPrefs.GetInt("TimeAliveCurrent") > PlayerPrefs.GetInt("TimeAliveMax",0))
+        time.text = "Tiempo sobrevivido: " +  Mathf.FloorToInt(timeAlive) + "s";
+        if(timeAlive > PlayerPrefs.GetInt("TimeAliveMax",0))
         {
-            PlayerPrefs.SetInt("TimeAliveMax", PlayerPrefs.GetInt("TimeAliveCurrent"));
-            UnityEngine.Debug.Log(PlayerPrefs.GetInt("TimeAliveMax", 0));
-            UnityEngine.Debug.Log(PlayerPrefs.GetInt("TimeAliveCurrent", 0));
+            if(PlayerPrefs.GetInt("FirsTime, 0 ") >= 1)
+            {   
+                newRecord.SetActive(true);
+            }
+            PlayerPrefs.SetInt("TimeAliveMax", Mathf.FloorToInt(timeAlive));
             PlayerPrefs.SetInt("FirstTime", 1);
             PlayerPrefs.Save();
-           
+            bestTime.text = "Mejor tiempo: " + timeAlive + "s";
         }
-        this.gameObject.SetActive(false);
+        else
+        {
+            bestTime.text = "Mejor tiempo: " +  PlayerPrefs.GetInt("TimeAliveMax",0) + "s";
+        }
+        
     }
     void GenerateTrash()
     {
@@ -118,7 +134,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
             Perseguir perseguir = SharkChase1.GetComponent<Perseguir>();
-            perseguir.speed = 1f + difficulty/10;
+            perseguir.speed =   0.75f + difficulty/9;
             perseguir.turnSpeed = 1.5f + difficulty/2;
             perseguir.chaseDuration = 6 + difficulty;
         }
@@ -126,7 +142,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject SharkChase2 = Instantiate(prefabs[4], RandomPosition(), Quaternion.identity);
             Oculto oculto = SharkChase2.GetComponent<Oculto>();
-            oculto.speed = 0.9f + difficulty/11;
+            oculto.speed = 0.8f + difficulty/11;
             oculto.turnSpeed = difficulty;
             oculto.chaseDuration = 7 + difficulty;
         }

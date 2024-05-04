@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Sprite fullBar, emptyBar;
     public int maxHealth = 5, currentHealth, _money; 
     public Collider2D backgroundCollider, UICollider;
-    public GameObject player, spawner, gameOver,pauseButton, pauseMenu;
+    public GameObject player, spawner;
     public bool _immune,dead;
     private SpriteRenderer _renderer;
     private Animator _animator;
@@ -173,9 +173,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Spawner spawnerScript = spawner.GetComponent<Spawner>();
         spawnerScript.Dead();
-        pauseMenu.SetActive(false);
-        pauseButton.SetActive(false);
-        gameOver.SetActive(true); 
+        
         
 
     }
