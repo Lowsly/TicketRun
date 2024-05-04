@@ -2133,6 +2133,7 @@ MonoBehaviour:
   - {fileID: 1065036142}
   audioClipDamage: {fileID: 8300000, guid: ca11d39a8f302d9488e4494c58ccea83, type: 3}
   audioClipHearth: {fileID: 8300000, guid: 96dcafa95feee1047a1532696d4bb40f, type: 3}
+  audioClipDeath: {fileID: 8300000, guid: 98661c045a87b0c418726278229cf56d, type: 3}
   fullBar: {fileID: 21300000, guid: f5c8161a8e4f85549b349e5b46d97e4a, type: 3}
   emptyBar: {fileID: 21300000, guid: cde3c2ec4fb29714782f188287b2bd49, type: 3}
   maxHealth: 3

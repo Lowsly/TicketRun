@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public Image[] healthBars;
     public AudioClip audioClipDamage;
     public AudioClip audioClipHearth;
+    public AudioClip audioClipDeath;
     private AudioSource audioSource;
 
     public Sprite fullBar, emptyBar;
@@ -187,9 +188,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Spawner spawnerScript = spawner.GetComponent<Spawner>();
         spawnerScript.Dead();
-        
-        
+
+        if (audioClipDeath != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(audioClipDeath);
+        }
 
     }
+    
 
 }

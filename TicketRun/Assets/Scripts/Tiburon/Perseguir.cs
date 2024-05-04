@@ -5,6 +5,7 @@ public class Perseguir : MonoBehaviour, IBehavioralEntity {
     public float speed = 5.0f;
     public float turnSpeed = 2.0f;
     public float chaseDuration = 5.0f;
+    
     private Transform player;  // Reference to the player's transform
     private static BehaviorNode behaviorTree;
     private List<Transform> earlyWarnings = new List<Transform>();
@@ -13,7 +14,7 @@ public class Perseguir : MonoBehaviour, IBehavioralEntity {
     private bool isAvoidingObstacles = false;  
     private float chaseTimer = 0.0f; 
     private bool isChasing = true;
-
+    
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
