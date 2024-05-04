@@ -3,7 +3,8 @@ using TMPro;
 
 public class CargarMonedas : MonoBehaviour
 {
-    public TextMeshProUGUI eggCounterText; 
+    public TextMeshProUGUI eggCounterText;
+    public AudioClip eggCollectSound;
     private int eggsCollected = 0; 
 
     void Start()
@@ -20,9 +21,18 @@ public class CargarMonedas : MonoBehaviour
             eggsCollected += 1;
             SaveEggs();
             UpdateEggDisplay(); 
-            
+            PlayEggCollectSound();
         }
     }
+
+    void PlayEggCollectSound()
+        {
+            if (eggCollectSound != null)
+            {
+        
+                AudioSource.PlayClipAtPoint(eggCollectSound, transform.position);
+            }
+        }
 
     void SaveEggs()
     {

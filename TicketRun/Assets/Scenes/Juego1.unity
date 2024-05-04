@@ -2225,6 +2225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggCounterText: {fileID: 873145814}
+  eggCollectSound: {fileID: 8300000, guid: cdb84d5495370d84593c71edc10bb47f, type: 3}
 --- !u!1 &1060711934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3950,6 +3951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.1
+  direction: 0
 --- !u!114 &1392497596
 MonoBehaviour:
   m_ObjectHideFlags: 0
