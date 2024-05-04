@@ -5,10 +5,12 @@ public class CargarMonedas : MonoBehaviour
 {
     public TextMeshProUGUI eggCounterText;
     public AudioClip eggCollectSound;
+    private AudioSource audioSource;
     private int eggsCollected = 0; 
-
+  
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         LoadEggs();
         UpdateEggDisplay(); 
     }
@@ -27,11 +29,10 @@ public class CargarMonedas : MonoBehaviour
 
     void PlayEggCollectSound()
         {
-            if (eggCollectSound != null)
-            {
-        
-                AudioSource.PlayClipAtPoint(eggCollectSound, transform.position);
-            }
+            if (audioSource != null && eggCollectSound != null)
+        {
+            audioSource.PlayOneShot(eggCollectSound); // Reproducir el sonido una vez
+        }
         }
 
     void SaveEggs()
