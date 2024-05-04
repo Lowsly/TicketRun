@@ -31,7 +31,7 @@ public class CargarMonedas : MonoBehaviour
         {
             if (audioSource != null && eggCollectSound != null)
         {
-            audioSource.PlayOneShot(eggCollectSound); // Reproducir el sonido una vez
+            audioSource.PlayOneShot(eggCollectSound);
         }
         }
 

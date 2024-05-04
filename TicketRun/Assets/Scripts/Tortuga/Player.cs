@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed, animatorSpeed = 0; 
     public Image[] healthBars;
+    public AudioClip audioClipDamage;
+    public AudioClip audioClipHearth;
+    private AudioSource audioSource;
 
     public Sprite fullBar, emptyBar;
     public int maxHealth = 5, currentHealth, _money; 
@@ -17,6 +20,7 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         UpdateHealthUI();
         _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -82,7 +86,12 @@ public class Player : MonoBehaviour
                 dead = true;
                 player.layer = LayerMask.NameToLayer("Immune");
                 StartCoroutine(Death());
-            }    
+            }
+            
+            if (audioClipDamage != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(audioClipDamage);
+            }
         }
     }
      IEnumerator HeartColor()
@@ -164,6 +173,11 @@ public class Player : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
+        }
+
+        if (audioClipHearth != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(audioClipHearth);
         }
         UpdateHealthUI();
     }
