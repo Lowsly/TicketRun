@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
     private float timeAlive;
     private bool isAlive = true;
     private float _bh, _bw, bw, _ozw, _ozh;
-    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu, newRecord;
+    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu;
     public TextMeshProUGUI time, bestTime;
     
     void Start()
@@ -71,18 +71,14 @@ public class Spawner : MonoBehaviour
         pauseButton.SetActive(false);
         gameOver.SetActive(true); 
         optionsMenu.SetActive(false);
-        PlayerPrefs.SetInt("TimeAliveCurrent", Mathf.FloorToInt(timeAlive));
-        time.text = "Tiempo sobrevivido: " +  Mathf.FloorToInt(timeAlive) + "s";
+        int timeAliveInt = Mathf.FloorToInt(timeAlive);      
+        PlayerPrefs.SetInt("TimeAliveCurrent", timeAliveInt);
+        time.text = "Tiempo sobrevivido: " +  timeAliveInt + "s";
         if(timeAlive > PlayerPrefs.GetInt("TimeAliveMax",0))
         {
-            if(PlayerPrefs.GetInt("FirsTime, 0 ") >= 1)
-            {   
-                newRecord.SetActive(true);
-            }
-            PlayerPrefs.SetInt("TimeAliveMax", Mathf.FloorToInt(timeAlive));
-            PlayerPrefs.SetInt("FirstTime", 1);
+            PlayerPrefs.SetInt("TimeAliveMax", timeAliveInt);
             PlayerPrefs.Save();
-            bestTime.text = "Mejor tiempo: " + timeAlive + "s";
+            bestTime.text = "Mejor tiempo: " + timeAliveInt + "s";
         }
         else
         {
