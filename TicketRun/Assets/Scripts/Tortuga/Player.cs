@@ -61,7 +61,11 @@ public class Player : MonoBehaviour
         else if(PlayerPrefs.GetInt("joystickEnabled", 0) == 1)
         {
             move.x = joystick.Horizontal;
-            move.y = joystick.Vertical;
+            if(joystick.Vertical>-0.5 && joystick.Vertical<0)
+                move.y = joystick.Vertical*1.5f;
+            else 
+                move.y = joystick.Vertical;
+            
         }
         
     }
