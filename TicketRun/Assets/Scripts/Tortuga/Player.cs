@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public bool _immune,dead;
     private SpriteRenderer _renderer;
     private Animator _animator;
+    public FixedJoystick joystick;
     private void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
