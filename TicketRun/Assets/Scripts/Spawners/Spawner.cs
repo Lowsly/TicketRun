@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics;
 using TMPro;
 
 public class Spawner : MonoBehaviour
@@ -99,7 +98,7 @@ public class Spawner : MonoBehaviour
         yCooldowns[yCoord] = Time.time + yRangeCooldown; // Update cooldown for the Y coordinate
 
         // Create the trash GameObject at the calculated position and rotation.
-        GameObject trash = Instantiate(prefabs[2], new Vector2(RandX, yCoord), Quaternion.Euler(0, 0, direction));
+        Instantiate(prefabs[2], new Vector2(RandX, yCoord), Quaternion.Euler(0, 0, direction));
     }
     bool IsYCoordAvailable(float yCoord)
     {
