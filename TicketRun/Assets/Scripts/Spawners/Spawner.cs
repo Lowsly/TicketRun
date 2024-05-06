@@ -1,18 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.54f, 7, 1.5f, 10, 20 };
+    private float[] timeToSpawn = { 1, 9, 3f, 12, 21 };
+    //private float[] timeToSpawn = { 0.6f, 7, 1.5f, 10, 20 };
     private float[] timeSinceLastSpawn = { 0, 0, 0, 1, 1 };
-
-    public float difficulty = 1f;
-    private float softCapDifficulty = 5F;
-    public float difficultyIncreaseRate = 0.05f;
-    private float difficultyIncreaseInterval = 2.5f;
-    private float timeSinceLastDifficultyIncrease = 0.0f;
+    private float HardCapDifficulty = 5F, softCapDifficulty = 1f, spawnTime = 0.05f;
+    public float difficultyIncreaseRate = 0.1f, difficulty = 0f;
+    private float difficultyIncreaseInterval = 2, timeSinceLastDifficultyIncrease = 0.0f;
     public Transform background, objectZone;
     public Player player;
     public Background backgroundSpeed;
@@ -22,7 +21,7 @@ public class Spawner : MonoBehaviour
     private float timeAlive;
     private bool isAlive = true;
     private float _bh, _bw, bw, _ozw, _ozh;
-    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu;
+    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu, joystick;
     public TextMeshProUGUI time, bestTime;
     
     void Start()
@@ -49,7 +48,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < timeSinceLastSpawn.Length; i++)
         {
             timeSinceLastSpawn[i] += Time.deltaTime;
-            if (timeSinceLastSpawn[i] >= timeToSpawn[i]-difficulty/7)
+            if (timeSinceLastSpawn[i] >= timeToSpawn[i])
             {
                 switch (i)
                 {
@@ -63,13 +62,47 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+    void IncreaseDifficulty()
+    {
+        timeSinceLastDifficultyIncrease += Time.deltaTime;
+        if (timeSinceLastDifficultyIncrease >= difficultyIncreaseInterval)
+        {
+            if(difficulty <HardCapDifficulty)
+            {
+                if(difficulty>softCapDifficulty)
+                {
+                    timeToSpawn[0]-=spawnTime/1.25f;
+                    timeToSpawn[1]-=spawnTime*4;
+                    timeToSpawn[2]-=spawnTime*3;
+                    timeToSpawn[3]-=spawnTime*3;
+                    timeToSpawn[4]-=spawnTime*2;
+                }
+                else
+                {
+                    timeToSpawn[0]-=spawnTime/10;
+                    timeToSpawn[1]-=spawnTime/9;
+                    timeToSpawn[2]-=spawnTime/8;
+                    timeToSpawn[3]-=spawnTime/1.5f;
+                    timeToSpawn[4]-=spawnTime/2;
+                }
+            }
+            
+             
+            difficulty += difficultyIncreaseRate;
+            
+            timeSinceLastDifficultyIncrease = 0;
+            backgroundSpeed.scrollSpeed = 0.1f+difficulty/10;
+            player.animatorSpeed = 0.1f + difficulty/10;
+        }
+    }
     public void Dead()
     {
         isAlive= false;
         pauseMenu.SetActive(false);
         pauseButton.SetActive(false);
-        gameOver.SetActive(true); 
+        joystick.SetActive(false);
         optionsMenu.SetActive(false);
+        gameOver.SetActive(true); 
         int timeAliveInt = Mathf.FloorToInt(timeAlive);      
         PlayerPrefs.SetInt("TimeAliveCurrent", timeAliveInt);
         time.text = "Tiempo sobrevivido: " +  timeAliveInt + "s";
@@ -162,17 +195,6 @@ public class Spawner : MonoBehaviour
     void GenerateLife()
     {  
         Instantiate(prefabs[6], new Vector2(Random.Range(-_ozw, _ozw), Random.Range(-_ozh, _ozh)), Quaternion.identity);
-    }
-    void IncreaseDifficulty()
-    {
-        timeSinceLastDifficultyIncrease += Time.deltaTime;
-        if (timeSinceLastDifficultyIncrease >= difficultyIncreaseInterval)
-        {
-            difficulty = Mathf.Min(difficulty + difficultyIncreaseRate, softCapDifficulty);
-            timeSinceLastDifficultyIncrease = 0;
-            backgroundSpeed.scrollSpeed = difficulty/10;
-            player.animatorSpeed = difficulty/10;
-        }
     }
 
     Vector3 RandomPosition()

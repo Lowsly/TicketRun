@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private SpriteRenderer _renderer;
     private Animator _animator;
     public FixedJoystick joystick;
-    private bool joystickEnabled; 
     private Rigidbody2D rb;
     private Vector2 move;
     private void Start()
@@ -29,14 +28,10 @@ public class Player : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        if(PlayerPrefs.GetInt("joystickEnabled", 1) == 0)
-        {
-            joystickEnabled = true;
-        }
     }
     private void Update()
     {
-        if(joystickEnabled)
+        if(PlayerPrefs.GetInt("joystickEnabled", 0) == 0)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
@@ -59,11 +54,11 @@ public class Player : MonoBehaviour
                     
                     
             }
-            else
+            else 
                 _animator.SetFloat("Speed", 0.9f + animatorSpeed);
 
         }
-        else
+        else if(PlayerPrefs.GetInt("joystickEnabled", 0) == 1)
         {
             move.x = joystick.Horizontal;
             move.y = joystick.Vertical;
