@@ -2,14 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed, animatorSpeed = 0; 
     public Image[] healthBars;
-    public AudioClip audioClipDamage;
-    public AudioClip audioClipHearth;
-    public AudioClip audioClipDeath;
+    public AudioClip audioClipDamage, audioClipHearth, audioClipDeath;
     private AudioSource audioSource;
 
     public Sprite fullBar, emptyBar;
@@ -20,42 +19,60 @@ public class Player : MonoBehaviour
     private SpriteRenderer _renderer;
     private Animator _animator;
     public FixedJoystick joystick;
+    private bool joystickEnabled; 
+    private Rigidbody2D rb;
+    private Vector2 move;
     private void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         UpdateHealthUI();
         _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        if(PlayerPrefs.GetInt("joystickEnabled", 1) == 0)
+        {
+            joystickEnabled = true;
+        }
     }
     private void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(joystickEnabled)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
+                if(backgroundCollider.OverlapPoint(mousePosition) && !UICollider.OverlapPoint(mousePosition))
+                {
+                    transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+                }
+                else 
+                {
+                    transform.position = Vector2.Lerp(transform.position, new Vector2(mousePosition.x, UICollider.transform.position.y - UICollider.transform.localScale.y / 2), moveSpeed * Time.deltaTime);
+                }
+                if(mousePosition.y>=transform.position.y-0.1f)
+                {
+                    _animator.SetFloat("Speed", 1.2f + animatorSpeed);
+                }
+                else 
+                {
+                    _animator.SetFloat("Speed", 0.4f);
+                }
+                    
+                    
+            }
+            else
+                _animator.SetFloat("Speed", 0.9f + animatorSpeed);
 
-        if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
-            if(backgroundCollider.OverlapPoint(mousePosition) && !UICollider.OverlapPoint(mousePosition))
-            {
-                transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
-            }
-            else 
-            {
-                transform.position = Vector2.Lerp(transform.position, new Vector2(mousePosition.x, UICollider.transform.position.y - UICollider.transform.localScale.y / 2), moveSpeed * Time.deltaTime);
-            }
-            if(mousePosition.y>=transform.position.y-0.1f)
-            {
-                _animator.SetFloat("Speed", 1.2f + animatorSpeed);
-            }
-            else 
-            {
-                 _animator.SetFloat("Speed", 0.4f);
-            }
-                
-                
         }
         else
-            _animator.SetFloat("Speed", 0.9f + animatorSpeed);
-
+        {
+            move.x = joystick.Horizontal;
+            move.y = joystick.Vertical;
+        }
+        
     }
-
+    private void FixedUpdate (){
+        rb.MovePosition(rb.position + move * moveSpeed/15 * Time.fixedDeltaTime);
+    }
      private void OnTriggerStay2D(Collider2D other)
     {
         if(!dead)
