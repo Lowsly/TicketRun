@@ -10,11 +10,11 @@ public class Pausa : MonoBehaviour
 
     void Awake()
     {
-        if(PlayerPrefs.GetInt("joystickEnabled") == 0)
+        if(PlayerPrefs.GetInt("joystickEnabled", 0) == 0)
             {
                 joystick.SetActive(false); 
             }
-            if(PlayerPrefs.GetInt("joystickEnabled") == 1)
+            if(PlayerPrefs.GetInt("joystickEnabled", 0) == 1)
             {
                 joystick.SetActive(true); 
             }

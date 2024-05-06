@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
-using UnityEngine.UI;
 public class MenuOpciones : MonoBehaviour
 {
     public GameObject check, cross;
@@ -30,10 +29,9 @@ public class MenuOpciones : MonoBehaviour
     }
     void setJoystick()
     {
-        Debug.Log(PlayerPrefs.GetInt("joystickEnabled"));
         if(check !=null && cross != null)
         {
-            if (PlayerPrefs.GetInt("joystickEnabled") == 0)
+            if (PlayerPrefs.GetInt("joystickEnabled",0) == 0)
             {
                 check.SetActive(false);
                 cross.SetActive(true);
@@ -46,4 +44,5 @@ public class MenuOpciones : MonoBehaviour
         }
         
     }
+
 }

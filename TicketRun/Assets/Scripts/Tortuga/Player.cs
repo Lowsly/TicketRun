@@ -65,8 +65,17 @@ public class Player : MonoBehaviour
         }
         
     }
-    private void FixedUpdate (){
-        rb.MovePosition(rb.position + move * moveSpeed/15 * Time.fixedDeltaTime);
+    private void FixedUpdate()
+    {
+        // Move the turtle
+        if (move != Vector2.zero)
+        {
+            Vector2 newPosition = rb.position + move * (moveSpeed / 15) * Time.fixedDeltaTime;
+            if (backgroundCollider.OverlapPoint(newPosition))
+            {
+                rb.MovePosition(newPosition);
+            }
+        }
     }
      private void OnTriggerStay2D(Collider2D other)
     {

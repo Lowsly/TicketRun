@@ -6,10 +6,10 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 1, 9, 3f, 12, 21 };
+    private float[] timeToSpawn = { 0.8f, 8f, 1.9f, 12, 21 }, multiplicator = {0.1f , .17f, .21f, .105f, .4f};
     //private float[] timeToSpawn = { 0.6f, 7, 1.5f, 10, 20 };
     private float[] timeSinceLastSpawn = { 0, 0, 0, 1, 1 };
-    private float HardCapDifficulty = 5F, softCapDifficulty = 1f, spawnTime = 0.05f;
+    private float HardCapDifficulty = 3F, softCapDifficulty = 1f;
     public float difficultyIncreaseRate = 0.1f, difficulty = 0f;
     private float difficultyIncreaseInterval = 2, timeSinceLastDifficultyIncrease = 0.0f;
     public Transform background, objectZone;
@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < timeSinceLastSpawn.Length; i++)
         {
             timeSinceLastSpawn[i] += Time.deltaTime;
-            if (timeSinceLastSpawn[i] >= timeToSpawn[i])
+            if (timeSinceLastSpawn[i] >= timeToSpawn[i] - difficulty*multiplicator[i])
             {
                 switch (i)
                 {
@@ -67,32 +67,20 @@ public class Spawner : MonoBehaviour
         timeSinceLastDifficultyIncrease += Time.deltaTime;
         if (timeSinceLastDifficultyIncrease >= difficultyIncreaseInterval)
         {
-            if(difficulty <HardCapDifficulty)
+            if(difficulty <= HardCapDifficulty)
             {
-                if(difficulty>softCapDifficulty)
+                if(difficulty<=softCapDifficulty)
                 {
-                    timeToSpawn[0]-=spawnTime/1.25f;
-                    timeToSpawn[1]-=spawnTime*4;
-                    timeToSpawn[2]-=spawnTime*3;
-                    timeToSpawn[3]-=spawnTime*3;
-                    timeToSpawn[4]-=spawnTime*2;
+                    difficulty += difficultyIncreaseRate;
                 }
                 else
                 {
-                    timeToSpawn[0]-=spawnTime/10;
-                    timeToSpawn[1]-=spawnTime/9;
-                    timeToSpawn[2]-=spawnTime/8;
-                    timeToSpawn[3]-=spawnTime/1.5f;
-                    timeToSpawn[4]-=spawnTime/2;
+                   difficulty += difficultyIncreaseRate/3;
                 }
-            }
-            
-             
-            difficulty += difficultyIncreaseRate;
-            
+            } 
             timeSinceLastDifficultyIncrease = 0;
-            backgroundSpeed.scrollSpeed = 0.1f+difficulty/10;
-            player.animatorSpeed = 0.1f + difficulty/10;
+            backgroundSpeed.scrollSpeed = 0.1f+difficulty/20;
+            player.animatorSpeed = 0.1f + difficulty/20;
         }
     }
     public void Dead()
@@ -158,19 +146,19 @@ public class Spawner : MonoBehaviour
         enemy.SetMoveDirection(angleDegrees);
         enemy.speed =  0.75f + difficulty/10;
         enemy.turnSpeed = 78.5f + difficulty*1.5f;
-        if(Random.Range(0,25) == 0 && difficulty > 1.2f)
+        if(Random.Range(0,35) == 0 && difficulty > 1f)
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
             Perseguir perseguir = SharkChase1.GetComponent<Perseguir>();
-            perseguir.speed =   0.75f + difficulty/9;
+            perseguir.speed =   0.7f + difficulty/9;
             perseguir.turnSpeed = 1.5f + difficulty/2;
             perseguir.chaseDuration = 6 + difficulty;
         }
-        if(Random.Range(0,40) == 0 && difficulty > 1.3f)
+        if(Random.Range(0,80) == 0 && difficulty > 1.3f)
         {
             GameObject SharkChase2 = Instantiate(prefabs[4], RandomPosition(), Quaternion.identity);
             Oculto oculto = SharkChase2.GetComponent<Oculto>();
-            oculto.speed = 0.8f + difficulty/11;
+            oculto.speed = 0.7f + difficulty/11;
             oculto.turnSpeed = difficulty;
             oculto.chaseDuration = 7 + difficulty;
         }
