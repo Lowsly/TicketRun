@@ -6,7 +6,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    private float[] timeToSpawn = { 0.8f, 8f, 1.9f, 12, 21 }, multiplicator = {0.1f , .17f, .21f, .105f, .4f};
+    private float[] timeToSpawn = { 0.8f, 8f, 2f, 12, 21 }, multiplicator = {0.1f , .17f, .2f, .105f, .4f};
     //private float[] timeToSpawn = { 0.6f, 7, 1.5f, 10, 20 };
     private float[] timeSinceLastSpawn = { 0, 0, 0, 1, 1 };
     private float HardCapDifficulty = 3F, softCapDifficulty = 1f;
@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
     private float timeAlive;
     private bool isAlive = true;
     private float _bh, _bw, bw, _ozw, _ozh;
-    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu, joystick;
+    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu;
     public TextMeshProUGUI time, bestTime;
     
     void Start()
@@ -88,7 +88,6 @@ public class Spawner : MonoBehaviour
         isAlive= false;
         pauseMenu.SetActive(false);
         pauseButton.SetActive(false);
-        joystick.SetActive(false);
         optionsMenu.SetActive(false);
         gameOver.SetActive(true); 
         int timeAliveInt = Mathf.FloorToInt(timeAlive);      

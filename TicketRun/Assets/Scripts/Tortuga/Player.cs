@@ -17,69 +17,38 @@ public class Player : MonoBehaviour
     public GameObject player, spawner;
     public bool _immune,dead;
     private SpriteRenderer _renderer;
-    private Animator _animator;
-    public FixedJoystick joystick;
-    private Rigidbody2D rb;
-    private Vector2 move;
+    Vector3 cords;
+
     private void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         UpdateHealthUI();
         _renderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        setMouseDistancePos(0, 1, 0.2f);
     }
     private void Update()
     {
-        if(PlayerPrefs.GetInt("joystickEnabled", 0) == 0)
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
-                if(backgroundCollider.OverlapPoint(mousePosition) && !UICollider.OverlapPoint(mousePosition))
-                {
-                    transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
-                }
-                else 
-                {
-                    transform.position = Vector2.Lerp(transform.position, new Vector2(mousePosition.x, UICollider.transform.position.y - UICollider.transform.localScale.y / 2), moveSpeed * Time.deltaTime);
-                }
-                if(mousePosition.y>=transform.position.y-0.1f)
-                {
-                    _animator.SetFloat("Speed", 1.2f + animatorSpeed);
-                }
-                else 
-                {
-                    _animator.SetFloat("Speed", 0.4f);
-                }
-                    
-                    
-            }
-            else 
-                _animator.SetFloat("Speed", 0.9f + animatorSpeed);
+        Vector2 mousePosition =  Camera.main.ScreenToWorldPoint(Input.mousePosition) + cords;
 
-        }
-        else if(PlayerPrefs.GetInt("joystickEnabled", 0) == 1)
-        {
-            move.x = joystick.Horizontal;
-            if(joystick.Vertical>-0.5 && joystick.Vertical<0)
-                move.y = joystick.Vertical*1.5f;
-            else 
-                move.y = joystick.Vertical;
-            
-        }
-        
-    }
-    private void FixedUpdate()
-    {
-        // Move the turtle
-        if (move != Vector2.zero)
-        {
-            Vector2 newPosition = rb.position + move * (moveSpeed / 15) * Time.fixedDeltaTime;
-            if (backgroundCollider.OverlapPoint(newPosition))
+        if (Input.GetMouseButton(0)  && EventSystem.current.currentSelectedGameObject == null ) {
+            if(backgroundCollider.OverlapPoint(mousePosition) && !UICollider.OverlapPoint(mousePosition))
             {
-                rb.MovePosition(newPosition);
+                transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed * Time.deltaTime);
             }
+            if(backgroundCollider.OverlapPoint(mousePosition) && UICollider.OverlapPoint(mousePosition))
+            {
+                transform.position = Vector2.Lerp(transform.position, new Vector2(mousePosition.x, UICollider.transform.position.y - UICollider.transform.localScale.y / 2), moveSpeed * Time.deltaTime);
+            }   
+            if (!backgroundCollider.OverlapPoint(mousePosition))  
+            {
+                transform.position +=Vector3.zero;
+            }              
         }
+    }
+
+    public void setMouseDistancePos(int Posx, int Posy, float distance)
+    {
+        cords = new Vector3(Posx*distance,Posy*distance,0);
     }
      private void OnTriggerStay2D(Collider2D other)
     {
@@ -127,22 +96,17 @@ public class Player : MonoBehaviour
 
         for (int flash = 0; flash < numberOfFlashes; flash++)
         {
-            // Disable the heart images up to the current health
             for (int i = 0; i < maxHealth; i++)
             {
                 healthBars[i].enabled = false;
             }
-
-            // Wait for a short time (e.g., 0.1 seconds)
             yield return new WaitForSecondsRealtime(0.1f);
 
-            // Enable the heart images up to the current health
             for (int i = 0; i < maxHealth; i++)
             {
                 healthBars[i].enabled = true;
             }
 
-            // Wait for the same short time before the next flash
             yield return new WaitForSecondsRealtime(0.1f);
         }
         UpdateHealthUI();
