@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         UpdateHealthUI();
         _renderer = GetComponent<SpriteRenderer>();
-        setMouseDistancePos(0, 1, 0.2f);
+        setMouseDistancePos();
     }
     private void Update()
     {
@@ -46,9 +46,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void setMouseDistancePos(int Posx, int Posy, float distance)
+    public void setMouseDistancePos()
     {
-        cords = new Vector3(Posx*distance,Posy*distance,0);
+        float distance = PlayerPrefs.GetFloat("PointerDistance",0.6f);
+        cords = new Vector3(PlayerPrefs.GetInt("PosX",0)*distance,PlayerPrefs.GetInt("PosY",1)*distance,0);
     }
      private void OnTriggerStay2D(Collider2D other)
     {
