@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
-
 public class Player : MonoBehaviour
 {
     public float moveSpeed, animatorSpeed = 0; 

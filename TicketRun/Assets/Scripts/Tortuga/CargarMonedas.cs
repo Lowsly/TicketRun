@@ -21,7 +21,8 @@ public class CargarMonedas : MonoBehaviour
         {
             Destroy(other.gameObject);
             eggsCollected += 1;
-            SaveEggs();
+            PlayerPrefs.SetInt("EggsCollected", eggsCollected); 
+            PlayerPrefs.Save(); 
             UpdateEggDisplay(); 
             PlayEggCollectSound();
         }
@@ -34,12 +35,6 @@ public class CargarMonedas : MonoBehaviour
             audioSource.PlayOneShot(eggCollectSound);
         }
         }
-
-    void SaveEggs()
-    {
-        PlayerPrefs.SetInt("EggsCollected", eggsCollected); 
-        PlayerPrefs.Save(); 
-    }
 
     void LoadEggs()
     {
