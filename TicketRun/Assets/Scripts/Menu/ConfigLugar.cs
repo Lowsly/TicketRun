@@ -11,7 +11,7 @@ public class ConfigLugar : MonoBehaviour
     {
         for(int i = 0; i<4; i++)
         {
-            if(i == PlayerPrefs.GetInt("CurrentSlot",0))
+            if(i == PlayerPrefs.GetInt("CurrentSlot",2))
             {
                 slots[i].color = Color.white;
             }
@@ -34,7 +34,7 @@ public class ConfigLugar : MonoBehaviour
     {
         for(int i = 0; i<4; i++)
         {
-            if(i == PlayerPrefs.GetInt("CurrentSlot",0))
+            if(i == PlayerPrefs.GetInt("CurrentSlot",2))
             {
                 slots[i].color = Color.white;
             }

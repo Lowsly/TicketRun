@@ -65,10 +65,8 @@ public class Spawner : MonoBehaviour
     void IncreaseDifficulty()
     {
         timeSinceLastDifficultyIncrease += Time.deltaTime;
-        if (timeSinceLastDifficultyIncrease >= difficultyIncreaseInterval)
+        if (timeSinceLastDifficultyIncrease >= difficultyIncreaseInterval && difficulty <= HardCapDifficulty)
         {
-            if(difficulty <= HardCapDifficulty)
-            {
                 if(difficulty<=softCapDifficulty)
                 {
                     difficulty += difficultyIncreaseRate;
@@ -77,7 +75,6 @@ public class Spawner : MonoBehaviour
                 {
                    difficulty += difficultyIncreaseRate/3;
                 }
-            } 
             timeSinceLastDifficultyIncrease = 0;
             backgroundSpeed.scrollSpeed = 0.1f+difficulty/20;
             player.animatorSpeed = 0.1f + difficulty/20;
@@ -145,20 +142,20 @@ public class Spawner : MonoBehaviour
         enemy.SetMoveDirection(angleDegrees);
         enemy.speed =  0.75f + difficulty/10;
         enemy.turnSpeed = 78.5f + difficulty*1.5f;
-        if(Random.Range(0,35) == 0 && difficulty > 1f)
+        if(Random.Range(0,40) == 0 && difficulty > 1f)
         {
             GameObject SharkChase1 = Instantiate(prefabs[3], RandomPosition(), Quaternion.identity);
             Perseguir perseguir = SharkChase1.GetComponent<Perseguir>();
-            perseguir.speed =   0.7f + difficulty/9;
-            perseguir.turnSpeed = 1.5f + difficulty/2;
+            perseguir.speed =   0.6f + difficulty/9;
+            perseguir.turnSpeed = 1.2f + difficulty/4;
             perseguir.chaseDuration = 6 + difficulty;
         }
-        if(Random.Range(0,80) == 0 && difficulty > 1.3f)
+        if(Random.Range(0,60) == 0 && difficulty > 1.3f)
         {
             GameObject SharkChase2 = Instantiate(prefabs[4], RandomPosition(), Quaternion.identity);
             Oculto oculto = SharkChase2.GetComponent<Oculto>();
-            oculto.speed = 0.7f + difficulty/11;
-            oculto.turnSpeed = difficulty;
+            oculto.speed = 0.6f + difficulty/11;
+            oculto.turnSpeed = difficulty/2;
             oculto.chaseDuration = 7 + difficulty;
         }
     }
