@@ -915,6 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upliftForce: 3
   success: {fileID: 8300000, guid: 96dcafa95feee1047a1532696d4bb40f, type: 3}
+  audioClipDeath: {fileID: 8300000, guid: 98661c045a87b0c418726278229cf56d, type: 3}
   spawner: {fileID: 1304646991}
   animator: {fileID: 164727737}
   presiona: {fileID: 374553575}

@@ -6,7 +6,7 @@ public class PlayerJuego2 : MonoBehaviour
     private Rigidbody2D rb;
     public float upliftForce = 5.0f; 
     private bool isDead, ready;
-    public AudioClip success;
+    public AudioClip success, audioClipDeath;
     private AudioSource audioSource;
     public SpawnerJuego2 spawner;
     public Animator animator;
@@ -56,11 +56,11 @@ public class PlayerJuego2 : MonoBehaviour
             rb.gravityScale = 1.6f;
             rb.AddForce(new Vector2(0, upliftForce*2), ForceMode2D.Impulse);
             StartCoroutine(spawner.Dead());
+            audioSource.PlayOneShot(audioClipDeath);
         }
         if(collision.CompareTag("Healing"))
         {
             audioSource.PlayOneShot(success);
-            Debug.Log("hola");
             spawner.UpdatePoints();
             Destroy(collision.gameObject);
         }

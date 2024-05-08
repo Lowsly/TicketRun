@@ -37,7 +37,7 @@ public class SpawnerJuego2 : MonoBehaviour
     public IEnumerator Dead()
     {
         isAlive= false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.9f);
         pauseMenu.SetActive(false);
         pauseButton.SetActive(false);
         optionsMenu.SetActive(false);
