@@ -327,7 +327,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 458637704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1762094077}
+        m_TargetAssemblyTypeName: MenuSeleccionJuego, Assembly-CSharp
+        m_MethodName: SiguienteJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &458637704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,9 +1139,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuInicial, Assembly-CSharp
-        m_MethodName: Jugar
+      - m_Target: {fileID: 1762094077}
+        m_TargetAssemblyTypeName: MenuSeleccionJuego, Assembly-CSharp
+        m_MethodName: IniciarJuego
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1335,7 +1347,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1430970867}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1762094077}
+        m_TargetAssemblyTypeName: MenuSeleccionJuego, Assembly-CSharp
+        m_MethodName: AnteriorJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1430970867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   juegos:
-  - {fileID: 11400000, guid: 83917408c73594e44a7177e57c830ce0, type: 2}
+  - {fileID: 11400000, guid: cd268a9d6e5ff1c418f61e5a239bbb99, type: 2}
+  - {fileID: 11400000, guid: 8ba8351704b162245b334188a823e484, type: 2}
 --- !u!4 &1542918767
 Transform:
   m_ObjectHideFlags: 0
