@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GyroOrTouchMove : MonoBehaviour
+public class Player3 : MonoBehaviour
 {
     public float speed = 10.0f;
     private bool gyroAvailable;
@@ -14,6 +14,7 @@ public class GyroOrTouchMove : MonoBehaviour
 
     void Start()
     {
+         rb = GetComponent<Rigidbody2D>();
         gyroAvailable = SystemInfo.supportsGyroscope;
         if (gyroAvailable)
         {
@@ -52,23 +53,31 @@ public class GyroOrTouchMove : MonoBehaviour
             }
         }
     }
-     private void OnTriggerEnter2D(Collider2D collision)
+     private void OnCollisionEnter2D(Collision2D collision)
+{
+    // Check collision with "Hitbox"
+    if (collision.collider.CompareTag("Hitbox"))
     {
-        if (collision.CompareTag("Hitbox"))
-        {
-            isDead = true;
-            gameObject.layer = LayerMask.NameToLayer("Immune");
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.gravityScale = 1.6f;
-            rb.AddForce(new Vector2(0, upliftForce*2), ForceMode2D.Impulse);
-            StartCoroutine(spawner.Dead());
-            audioSource.PlayOneShot(audioClipDeath);
-        }
-        if(collision.CompareTag("Healing"))
-        {
-            audioSource.PlayOneShot(success);
-            spawner.UpdatePoints();
-            Destroy(collision.gameObject);
-        }
+        isDead = true;
+        gameObject.layer = LayerMask.NameToLayer("Immune");
+        StartCoroutine(spawner.Dead());
+        audioSource.PlayOneShot(audioClipDeath);
     }
+
+    // Check collision with "Obstacle"
+    if (collision.collider.CompareTag("Obstacle"))
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
+        rb.AddForce(new Vector2(0, upliftForce), ForceMode2D.Impulse); // Apply upward force
+    }
+
+    // Check collision with "EnemyObstacle"
+    if (collision.collider.CompareTag("EnemyObstacle"))
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
+        rb.AddForce(new Vector2(0, -upliftForce / 2), ForceMode2D.Impulse); // Apply downward force
+        // audioSource.PlayOneShot(success);
+    }
+}
+
 }
