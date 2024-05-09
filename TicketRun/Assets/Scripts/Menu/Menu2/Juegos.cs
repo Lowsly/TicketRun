@@ -10,4 +10,6 @@ public class Juegos : ScriptableObject
 
    public string nombre;
    public string descripcion;
+
+   public string nombreEscena;
 }

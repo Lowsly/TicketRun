@@ -16,3 +16,4 @@ MonoBehaviour:
   imagen: {fileID: 21300000, guid: 2a9e85445c6169e4187ebf707d888cf2, type: 3}
   nombre: Flappy Turtle
   descripcion: Toca la pantalla para comenzar
+  nombreEscena: Juego2

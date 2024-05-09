@@ -60,6 +60,7 @@ public class MenuSeleccionJuego : MonoBehaviour
     }
 
     public void IniciarJuego(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        string nombreEscena = gameManager.juegos[index].nombreEscena;
+        SceneManager.LoadScene(nombreEscena);
     }
 }
