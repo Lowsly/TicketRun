@@ -9,4 +9,5 @@ public class Juegos : ScriptableObject
    public Sprite imagen;
 
    public string nombre;
+   public string descripcion;
 }
