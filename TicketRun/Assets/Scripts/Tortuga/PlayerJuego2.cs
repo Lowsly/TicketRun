@@ -36,14 +36,7 @@ public class PlayerJuego2 : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(new Vector2(0, upliftForce), ForceMode2D.Impulse);
             }
-            else if(isDead)
-            {
-                animator.SetFloat("speed",0);
-                this.gameObject.transform.localScale = new Vector3(-0.15f, -0.15f, 0);
-            }
         }
-
-        
             
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,7 +44,9 @@ public class PlayerJuego2 : MonoBehaviour
         if (collision.CompareTag("Obstacle"))
         {
             isDead = true;
-            this.gameObject.layer = LayerMask.NameToLayer("Immune");
+            animator.SetFloat("speed",0);
+            gameObject.transform.localScale = new Vector3(-0.15f, -0.15f, 0);
+            gameObject.layer = LayerMask.NameToLayer("Immune");
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.gravityScale = 1.6f;
             rb.AddForce(new Vector2(0, upliftForce*2), ForceMode2D.Impulse);
