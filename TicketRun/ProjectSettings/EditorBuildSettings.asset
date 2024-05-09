@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1519cb5dc2e4a684d8880896b62d1abb
   - enabled: 1
+    path: Assets/Scenes/MenSelect.unity
+    guid: 5cd5d39108834484fb7773970b4a94bb
+  - enabled: 1
     path: Assets/Scenes/Juego1.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
