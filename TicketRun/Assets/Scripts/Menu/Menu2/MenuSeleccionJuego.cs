@@ -12,6 +12,8 @@ public class MenuSeleccionJuego : MonoBehaviour
 
     [SerializeField] private Image imagenJuego;
     [SerializeField] private TextMeshProUGUI nombreJuego;
+
+    [SerializeField] private TextMeshProUGUI descripcionJuego;
     private GameManager gameManager;
 
     private void Start(){
@@ -30,6 +32,7 @@ public class MenuSeleccionJuego : MonoBehaviour
         PlayerPrefs.SetInt("JuegoIndex", index);
         imagenJuego.sprite = gameManager.juegos[index].imagen;
         nombreJuego.text = gameManager.juegos[index].nombre;
+        descripcionJuego.text = gameManager.juegos[index].descripcion;
     }
 
     public void SiguienteJuego(){

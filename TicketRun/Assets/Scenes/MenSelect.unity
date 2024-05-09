@@ -1505,8 +1505,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1671,6 +1671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imagenJuego: {fileID: 1939029873}
   nombreJuego: {fileID: 1653036971}
+  descripcionJuego: {fileID: 2015331364}
 --- !u!1 &1939029871
 GameObject:
   m_ObjectHideFlags: 0
