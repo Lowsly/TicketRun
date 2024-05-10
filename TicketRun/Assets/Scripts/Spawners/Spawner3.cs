@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class Spawner3 : MonoBehaviour
@@ -9,27 +10,27 @@ public class Spawner3 : MonoBehaviour
     public float yDistance = 5.0f; // Y-axis distance for each new set of jump pads
     private float maximumAltitude; // To track the highest altitude reached by the turtle
     private bool initialPadSpawned = false; // To track if the initial jump pad has been spawned
-    private float bw;
+    private float bw, latestHeight;
+
+    GameObject  LatesPad; 
+    private float timeSinceLastSpawn = 0,timeToSpawn = 1f;
 
     void Start()
     {
         // Spawn the initial jump pad directly at the turtle's current position
          bw = background.localScale.x;
-        SpawnJumpPads(-0.52f);
+        SpawnJumpPads(-1.5f);
         maximumAltitude = turtle.transform.position.y;
        
     }
 
     void Update()
     {
-        // Check if the turtle has reached 1.5 times the previous maximum altitude
-        if (turtle.transform.position.y > maximumAltitude * 1.5f)
+        timeSinceLastSpawn += Time.deltaTime;
+        if (timeSinceLastSpawn >= timeToSpawn)
         {
-            // Update the maximum altitude
-            maximumAltitude = turtle.transform.position.y;
-
-            // Spawn a new set of three jump pads at the new altitude
-           
+            timeSinceLastSpawn = 0;
+            SpawnJumpPads(LatesPad.transform.position.y);
         }
     }
 
@@ -40,18 +41,18 @@ public class Spawner3 : MonoBehaviour
         float centerX = transform.position.x;
 
         // Spawn three jump pads spaced apart by xRange
-        for (int i = 0; i < 3; i++)
+        for (int i = 1; i < 4; i++)
         {
-            float xPosition = randomX(); // Calculate x position
-            Debug.Log(xPosition);
-            Vector3 spawnPosition = new Vector3(xPosition, altitude+i+yDistance, 0);
+            float xPosition = Random.Range(-bw/2,bw/2);; // Calculate x position
+            Vector3 spawnPosition = new Vector3(xPosition, altitude + 2*i, 0);
             GameObject newPad = Instantiate(jumpPadPrefab, spawnPosition, Quaternion.identity);
             newPad.GetComponent<Juego3>().setTurtle(turtle);
-            // If the jump pads need to track or interact with the turtle in some way, you could do it here
+            latestHeight = newPad.transform.position.y;
+            if(i == 3)
+            {
+                LatesPad = newPad;
+            }
+            
         }
-    }
-    float randomX()
-    {
-        return Random.Range(-bw/2,bw/2);
     }
 }
