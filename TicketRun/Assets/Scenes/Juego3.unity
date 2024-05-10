@@ -5375,7 +5375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9b959c979e5804e8752da406517c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pantallaPausa: {fileID: 0}
+  pantallaPausa: {fileID: 1900594146}
   pauseButton: {fileID: 2059820728}
 --- !u!1 &1839521135
 GameObject:
