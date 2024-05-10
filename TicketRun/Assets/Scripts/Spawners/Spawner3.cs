@@ -16,6 +16,7 @@ public class Spawner3 : MonoBehaviour
         // Spawn the initial jump pad directly at the turtle's current position
          bw = background.localScale.x;
         SpawnJumpPads(-0.52f);
+        maximumAltitude = turtle.transform.position.y;
        
     }
 
@@ -43,7 +44,7 @@ public class Spawner3 : MonoBehaviour
         {
             float xPosition = randomX(); // Calculate x position
             Debug.Log(xPosition);
-            Vector3 spawnPosition = new Vector3(xPosition, altitude+i, 0);
+            Vector3 spawnPosition = new Vector3(xPosition, altitude+i+yDistance, 0);
             GameObject newPad = Instantiate(jumpPadPrefab, spawnPosition, Quaternion.identity);
             newPad.GetComponent<Juego3>().setTurtle(turtle);
             // If the jump pads need to track or interact with the turtle in some way, you could do it here
