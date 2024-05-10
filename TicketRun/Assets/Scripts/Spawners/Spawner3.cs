@@ -11,9 +11,10 @@ public class Spawner3 : MonoBehaviour
     private float maximumAltitude; // To track the highest altitude reached by the turtle
     private bool initialPadSpawned = false; // To track if the initial jump pad has been spawned
     private float bw, latestHeight;
+    private int X = 1; 
 
     GameObject  LatesPad; 
-    private float timeSinceLastSpawn = 0,timeToSpawn = 1f;
+    private float timeSinceLastSpawn = 0,timeToSpawn = 50f;
 
     void Start()
     {
@@ -21,17 +22,23 @@ public class Spawner3 : MonoBehaviour
          bw = background.localScale.x;
         SpawnJumpPads(-1.5f);
         maximumAltitude = turtle.transform.position.y;
+        X = Random.Range(0,2) == 0 ? 1 : -1;
        
     }
 
     void Update()
     {
-        timeSinceLastSpawn += Time.deltaTime;
+        /*timeSinceLastSpawn += Time.deltaTime;
         if (timeSinceLastSpawn >= timeToSpawn)
         {
             timeSinceLastSpawn = 0;
             SpawnJumpPads(LatesPad.transform.position.y);
-        }
+            if(yDistance<1.1f)
+            {
+                yDistance+=0.01f;
+            }
+            
+        }*/
     }
 
 
@@ -39,16 +46,25 @@ public class Spawner3 : MonoBehaviour
     {
         // Get the central position for the first jumper
         float centerX = transform.position.x;
+        float moveSpeed = 1.5f;
 
         // Spawn three jump pads spaced apart by xRange
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i < 1000; i++)
         {
-            float xPosition = Random.Range(-bw/2,bw/2);; // Calculate x position
-            Vector3 spawnPosition = new Vector3(xPosition, altitude + 2*i, 0);
+            float xPosition = Random.Range(bw/2,0.25f) * X; // Calculate x position
+            X*=-1;
+            Vector3 spawnPosition = new Vector3(xPosition, altitude + 3f*i, 0);
             GameObject newPad = Instantiate(jumpPadPrefab, spawnPosition, Quaternion.identity);
-            newPad.GetComponent<Juego3>().setTurtle(turtle);
+            Juego3 juego3 = newPad.GetComponent<Juego3>();
+            juego3.setTurtle(turtle);
+            if(moveSpeed > 1.470)
+            {
+                moveSpeed -= i/1000f;
+            }
+            
+            juego3.setSpeed(moveSpeed);
             latestHeight = newPad.transform.position.y;
-            if(i == 3)
+            if(i == 99)
             {
                 LatesPad = newPad;
             }

@@ -43,4 +43,8 @@ public class Juego3 : MonoBehaviour
     {
         this.turtle = turtle; // Set the turtle reference directly
     }
+    public void setSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
 }

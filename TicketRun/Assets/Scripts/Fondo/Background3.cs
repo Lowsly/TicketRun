@@ -20,17 +20,21 @@ public class Background3 : MonoBehaviour
     {
         if (turtle != null)
         {
-            float deltaY = turtle.transform.position.y - lastTurtleY; // Calculate how much the turtle has moved since the last frame
-            float offset = deltaY * scrollSpeed; // Determine the offset for the background
+            float currentTurtleY = turtle.transform.position.y;
+            if (currentTurtleY > lastTurtleY) // Check if the turtle has moved up since the last frame
+            {
+                float deltaY = currentTurtleY - lastTurtleY; // Calculate how much the turtle has moved up
+                float offset = deltaY * scrollSpeed; // Determine the upward offset for the background
 
-            // Get the current texture offset
-            Vector2 currentOffset = bgRenderer.material.mainTextureOffset;
+                // Get the current texture offset
+                Vector2 currentOffset = bgRenderer.material.mainTextureOffset;
 
-            // Update the texture offset with the new value, moving inversely to the turtle
-            bgRenderer.material.mainTextureOffset = new Vector2(currentOffset.x, currentOffset.y - offset);
+                // Update the texture offset by decreasing Y to scroll upwards
+                bgRenderer.material.mainTextureOffset = new Vector2(currentOffset.x, currentOffset.y - offset);
+            }
 
-            // Update lastTurtleY to the new Y position for the next frame
-            lastTurtleY = turtle.transform.position.y;
+            // Always update lastTurtleY to the current Y position for the next frame
+            lastTurtleY = currentTurtleY;
         }
     }
 }
