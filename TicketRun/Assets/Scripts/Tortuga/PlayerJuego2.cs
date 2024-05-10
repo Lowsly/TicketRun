@@ -21,7 +21,7 @@ public class PlayerJuego2 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !ready)
+        if (Input.GetMouseButtonDown(0) && !ready && EventSystem.current.currentSelectedGameObject == null)
         {
             ready = true;
             rb.gravityScale = 0.9f;
