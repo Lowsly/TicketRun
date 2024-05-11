@@ -5,6 +5,7 @@ public class Juego3 : MonoBehaviour
     public GameObject turtle; // Assign your turtle GameObject in the Inspector
     public float moveSpeed = 0.5f; // How responsive the game object is to the turtle's upward movement
     private Vector3 lastTurtlePosition; // To track changes in the turtle's position
+    private Animator anim;
 
     void Start()
     {
@@ -12,6 +13,7 @@ public class Juego3 : MonoBehaviour
         {
             lastTurtlePosition = turtle.transform.position; // Initialize with the turtle's starting position
         }
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -46,5 +48,9 @@ public class Juego3 : MonoBehaviour
     public void setSpeed(float speed)
     {
         moveSpeed = speed;
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        anim.SetTrigger("Salto");
     }
 }

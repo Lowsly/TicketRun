@@ -410,7 +410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &110950536
 GameObject:
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 252818b04a67b474ca602eaf7c4b8966, type: 3}
+  m_Texture: {fileID: 2800000, guid: 8b76d807fd81c1844b88bc393c6d9095, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -815,7 +815,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 16
   m_Sprite: {fileID: -1627232527, guid: 935a172a8fe94b642b042be440aeb559, type: 3}
   m_Color: {r: 0.9396816, g: 0.93773586, b: 1, a: 1}
   m_FlipX: 0
@@ -835,12 +835,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164727735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -1.236, z: 0}
+  m_LocalPosition: {x: 0.001, y: -1.084, z: 0}
   m_LocalScale: {x: -0.15, y: 0.15, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &164727740
 Rigidbody2D:
@@ -1200,6 +1200,7 @@ GameObject:
   - component: {fileID: 237164310}
   - component: {fileID: 237164311}
   - component: {fileID: 237164312}
+  - component: {fileID: 237164313}
   m_Layer: 9
   m_Name: Suelo
   m_TagString: Obstacle
@@ -1347,6 +1348,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!95 &237164313
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237164303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &246262587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1474,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &331993429
 MonoBehaviour:
@@ -1639,7 +1660,7 @@ Transform:
   - {fileID: 237164304}
   - {fileID: 1850361270}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &454024215
 GameObject:
@@ -3079,7 +3100,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1164894440
 MonoBehaviour:
@@ -3475,7 +3496,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1304646993
 MonoBehaviour:
@@ -4041,7 +4062,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1540532266
 MonoBehaviour:
@@ -4263,7 +4284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turtle: {fileID: 164727735}
+  altitudeDisplay: {fileID: 1003531120}
   scrollSpeed: 0.01
+  additionalBgRenderer: {fileID: 1392497592}
 --- !u!1 &1595415345
 GameObject:
   m_ObjectHideFlags: 0
@@ -5356,7 +5379,7 @@ RectTransform:
   - {fileID: 1763015603}
   - {fileID: 1900594147}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6183,7 +6206,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066061687}
   m_CullTransparentMesh: 1
---- !u!1001 &3348316612704788071
+--- !u!1001 &8372333000923460291
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -6198,25 +6221,13 @@ PrefabInstance:
       propertyPath: turtle
       value: 
       objectReference: {fileID: 164727735}
-    - target: {fileID: 3348316613255737901, guid: ed497d0bf0432e64292ba63bf65f8234, type: 3}
-      propertyPath: moveSpeed
-      value: 1.3
-      objectReference: {fileID: 0}
     - target: {fileID: 3348316613255737902, guid: ed497d0bf0432e64292ba63bf65f8234, type: 3}
       propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348316613255737902, guid: ed497d0bf0432e64292ba63bf65f8234, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348316613255737902, guid: ed497d0bf0432e64292ba63bf65f8234, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3348316613255737902, guid: ed497d0bf0432e64292ba63bf65f8234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3348316613255737902, guid: ed497d0bf0432e64292ba63bf65f8234, type: 3}
       propertyPath: m_LocalPosition.y

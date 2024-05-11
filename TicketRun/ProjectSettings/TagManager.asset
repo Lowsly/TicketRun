@@ -16,6 +16,7 @@ TagManager:
   - Objeto
   - Huevo
   - Maw
+  - Player3
   layers:
   - Default
   - TransparentFX
