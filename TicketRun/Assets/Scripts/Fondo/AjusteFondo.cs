@@ -13,3 +13,4 @@ public class AjusteFondo : MonoBehaviour
         this.gameObject.transform.localScale = new Vector3(escala*X, escala*Y, 1.0f);
     }
 }
+
