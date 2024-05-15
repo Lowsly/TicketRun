@@ -15,6 +15,8 @@ public class MenuSeleccionJuego : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI descripcionJuego;
     private GameManager gameManager;
+    private AudioSource audioSource;
+    public AudioClip NextGame, BackGame;
 
     private void Start(){
         gameManager = GameManager.Intance;
@@ -25,6 +27,7 @@ public class MenuSeleccionJuego : MonoBehaviour
             index = 0;
         }
         CambiarPantalla();
+        audioSource = gameObject.AddComponent<AudioSource>();
 
     }
 
@@ -44,7 +47,12 @@ public class MenuSeleccionJuego : MonoBehaviour
             index += 1;
 
         }
+        if (NextGame != null)
+        {
+            audioSource.PlayOneShot(NextGame);
+        }
         CambiarPantalla();
+
     }
 
        public void AnteriorJuego(){
@@ -55,6 +63,10 @@ public class MenuSeleccionJuego : MonoBehaviour
         else{
             index -= 1;
 
+        }
+        if (BackGame != null)
+        {
+            audioSource.PlayOneShot(BackGame);
         }
         CambiarPantalla();
     }

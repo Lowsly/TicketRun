@@ -1697,6 +1697,8 @@ MonoBehaviour:
   imagenJuego: {fileID: 1939029873}
   nombreJuego: {fileID: 1653036971}
   descripcionJuego: {fileID: 2015331364}
+  NextGame: {fileID: 8300000, guid: 56501fa9a115aaf4bbc7215fb5eabc94, type: 3}
+  BackGame: {fileID: 8300000, guid: 56501fa9a115aaf4bbc7215fb5eabc94, type: 3}
 --- !u!1 &1939029871
 GameObject:
   m_ObjectHideFlags: 0
