@@ -51,6 +51,7 @@ public class Juego3 : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(anim !=null)
         anim.SetTrigger("Salto");
     }
 }
