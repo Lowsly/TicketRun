@@ -1430,6 +1430,7 @@ MonoBehaviour:
   juegos:
   - {fileID: 11400000, guid: cd268a9d6e5ff1c418f61e5a239bbb99, type: 2}
   - {fileID: 11400000, guid: 8ba8351704b162245b334188a823e484, type: 2}
+  - {fileID: 11400000, guid: 4b2360084d98f8048b57aa86cffb3330, type: 2}
 --- !u!4 &1542918767
 Transform:
   m_ObjectHideFlags: 0
@@ -1894,7 +1895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 10.0025, y: 359.8}
+  m_AnchoredPosition: {x: 10.0025, y: 321}
   m_SizeDelta: {x: 792.1234, y: 345.78}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2015331364
@@ -1917,7 +1918,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: pROTEGE A LA TORTUGA
+  m_text: 'PROTEGE A LA TORTUGA
+
+    PROTEGE A LA TORTUGA
+
+    PROTEGE A LA TORTUGA'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b3786cf60641d4bbb2738489c958d3, type: 2}
   m_sharedMaterial: {fileID: 5642627829360388181, guid: 03b3786cf60641d4bbb2738489c958d3, type: 2}

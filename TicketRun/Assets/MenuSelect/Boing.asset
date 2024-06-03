@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c9b13abf41676e49a8fa75521b0cfcf, type: 3}
-  m_Name: Flappy
+  m_Name: Boing
   m_EditorClassIdentifier: 
-  juegoJugado: {fileID: 3207449226612029576, guid: 86d5b58a5b42ad645a65fc05f0fac24f, type: 3}
-  imagen: {fileID: 21300000, guid: 2a9e85445c6169e4187ebf707d888cf2, type: 3}
-  nombre: Flappy Turtle
-  descripcion: "\xA1Protege a la tortuga a toda costa!"
-  nombreEscena: Juego2
+  juegoJugado: {fileID: 8949799377438781480, guid: e12cf74b1e3d0f649903534d0b4aade8, type: 3}
+  imagen: {fileID: 21300000, guid: 4d2a8a24029c5254280517741a865906, type: 3}
+  nombre: Jelly Jump
+  descripcion: "\xA1Salta sobre las medusas!"
+  nombreEscena: Juego3
