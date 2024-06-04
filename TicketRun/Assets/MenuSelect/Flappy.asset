@@ -15,5 +15,5 @@ MonoBehaviour:
   juegoJugado: {fileID: 3207449226612029576, guid: 86d5b58a5b42ad645a65fc05f0fac24f, type: 3}
   imagen: {fileID: 21300000, guid: 2a9e85445c6169e4187ebf707d888cf2, type: 3}
   nombre: Flappy Turtle
-  descripcion: "\xA1Protege a la tortuga a toda costa!"
+  descripcion: "Tu r\xE9cord, tu l\xEDmite"
   nombreEscena: Juego2
