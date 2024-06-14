@@ -3670,7 +3670,7 @@ GameObject:
   - component: {fileID: 1027250103}
   - component: {fileID: 1027250104}
   - component: {fileID: 1027250105}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tortuga
   m_TagString: Player
   m_Icon: {fileID: 0}
