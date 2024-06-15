@@ -19,6 +19,7 @@ public class Player3 : MonoBehaviour
 
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         gyroAvailable = SystemInfo.supportsGyroscope;
         if (gyroAvailable)
@@ -74,7 +75,7 @@ public class Player3 : MonoBehaviour
         if (collision.collider.CompareTag("Hitbox"))
         {
             gameObject.layer = LayerMask.NameToLayer("Immune");
-            
+            audioSource.PlayOneShot(audioClipDeath);
             pauseMenu.SetActive(false);
             pauseButton.SetActive(false);
             optionsMenu.SetActive(false);

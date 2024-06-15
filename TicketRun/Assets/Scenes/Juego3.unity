@@ -900,7 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   upliftForce: 6
-  success: {fileID: 0}
+  success: {fileID: 8300000, guid: cdb84d5495370d84593c71edc10bb47f, type: 3}
   audioClipDeath: {fileID: 8300000, guid: 98661c045a87b0c418726278229cf56d, type: 3}
   animator: {fileID: 164727737}
   presiona: {fileID: 520036510}
