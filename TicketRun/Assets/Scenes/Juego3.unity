@@ -885,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggCounterText: {fileID: 873145814}
-  eggCollectSound: {fileID: 0}
+  eggCollectSound: {fileID: 8300000, guid: cdb84d5495370d84593c71edc10bb47f, type: 3}
 --- !u!114 &164727743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,6 +902,9 @@ MonoBehaviour:
   upliftForce: 6
   success: {fileID: 8300000, guid: cdb84d5495370d84593c71edc10bb47f, type: 3}
   audioClipDeath: {fileID: 8300000, guid: 98661c045a87b0c418726278229cf56d, type: 3}
+  jump1: {fileID: 8300000, guid: bcbeb53e56162a74cbe8b7c527b86356, type: 3}
+  jump2: {fileID: 8300000, guid: 656a6727d56c08a48a47800746fea61e, type: 3}
+  jump3: {fileID: 8300000, guid: 3b7ddddce30b5a54aa30bfcaf4d230e5, type: 3}
   animator: {fileID: 164727737}
   presiona: {fileID: 520036510}
   background: {fileID: 1560287127}
@@ -3153,7 +3156,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164894436}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 27b6a4df68f34c04686068e923708404, type: 3}

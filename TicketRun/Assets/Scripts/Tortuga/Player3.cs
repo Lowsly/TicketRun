@@ -9,6 +9,7 @@ public class Player3 : MonoBehaviour
     private Rigidbody2D rb;
     public float upliftForce = 5.0f; 
     public AudioClip success, audioClipDeath;
+    public AudioClip jump1,jump2,jump3;
     private AudioSource audioSource;
 
     public Animator animator;
@@ -99,6 +100,16 @@ public class Player3 : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
             rb.AddForce(new Vector2(0, upliftForce), ForceMode2D.Impulse); // Apply upward force
+            int x = Random.Range(0,3); 
+            switch(x)
+            {
+                case 0:
+                audioSource.PlayOneShot(jump1); break;
+                case 1:
+                audioSource.PlayOneShot(jump2); break;
+                case 2:
+                audioSource.PlayOneShot(jump3); break;
+            }
         }
 
         if (collision.collider.CompareTag("EnemyObstacle"))
