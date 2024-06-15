@@ -1,20 +1,25 @@
 using UnityEngine;
-
+using UnityEngine.EventSystems;
+using TMPro;
 public class Player3 : MonoBehaviour
 {
     public float speed = 10.0f;
     private bool gyroAvailable;
-    private bool isDead;
+    private bool isDead, ready = false;
     private Rigidbody2D rb;
     public float upliftForce = 5.0f; 
     public AudioClip success, audioClipDeath;
     private AudioSource audioSource;
-    public SpawnerJuego2 spawner;
+
     public Animator animator;
+    public GameObject presiona;
+    public Background3 background;
+    public GameObject gameOver,pauseButton, pauseMenu, optionsMenu;  
+    public TextMeshProUGUI time, bestTime;
 
     void Start()
     {
-         rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         gyroAvailable = SystemInfo.supportsGyroscope;
         if (gyroAvailable)
         {
@@ -24,14 +29,25 @@ public class Player3 : MonoBehaviour
 
     void Update()
     {
-        if (gyroAvailable)
+         if (Input.GetMouseButtonDown(0) && !ready && EventSystem.current.currentSelectedGameObject == null)
         {
-            MoveWithGyro();
+            ready = true;
+            rb.gravityScale = 0.5f;
+            animator.SetFloat("speed",1f);
+            presiona.SetActive(false);
         }
-        else
+        if(ready)
         {
-            MoveWithTouch();
+            if (gyroAvailable)
+            {
+                MoveWithGyro();
+            }
+            else
+            {
+                MoveWithTouch();
+            }
         }
+        
     }
 
     void MoveWithGyro()
@@ -54,30 +70,42 @@ public class Player3 : MonoBehaviour
         }
     }
      private void OnCollisionEnter2D(Collision2D collision)
-{
-    // Check collision with "Hitbox"
-    if (collision.collider.CompareTag("Hitbox"))
     {
-        isDead = true;
-        gameObject.layer = LayerMask.NameToLayer("Immune");
-        StartCoroutine(spawner.Dead());
-        audioSource.PlayOneShot(audioClipDeath);
-    }
+        if (collision.collider.CompareTag("Hitbox"))
+        {
+            gameObject.layer = LayerMask.NameToLayer("Immune");
+            
+            pauseMenu.SetActive(false);
+            pauseButton.SetActive(false);
+            optionsMenu.SetActive(false);
+            gameOver.SetActive(true);     
+            int Height = background.totalAscent2;
+            PlayerPrefs.SetInt("Height", Height);
+            time.text = "Altura actual: " +  Height + " m";
+            if(Height > PlayerPrefs.GetInt("BestHeight",0))
+            {
+                PlayerPrefs.SetInt("BestHeight", Height);
+                PlayerPrefs.Save();
+                bestTime.text = "Altura máxima lograda: " + Height + " m";
+            }
+            else
+            {
+                bestTime.text = "Altura máxima lograda: " +  PlayerPrefs.GetInt("BestHeight",0) + " m";
+            }
+        }
 
-    // Check collision with "Obstacle"
-    if (collision.collider.CompareTag("Obstacle"))
-    {
-        rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
-        rb.AddForce(new Vector2(0, upliftForce), ForceMode2D.Impulse); // Apply upward force
-    }
+        if (collision.collider.CompareTag("Obstacle"))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
+            rb.AddForce(new Vector2(0, upliftForce), ForceMode2D.Impulse); // Apply upward force
+        }
 
-    // Check collision with "EnemyObstacle"
-    if (collision.collider.CompareTag("EnemyObstacle"))
-    {
-        rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
-        rb.AddForce(new Vector2(0, -upliftForce / 2), ForceMode2D.Impulse); // Apply downward force
-        // audioSource.PlayOneShot(success);
+        if (collision.collider.CompareTag("EnemyObstacle"))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0); // Stop vertical movement
+            rb.AddForce(new Vector2(0, -upliftForce / 2), ForceMode2D.Impulse); // Apply downward force
+            // audioSource.PlayOneShot(success);
+        }
     }
-}
 
 }

@@ -10,6 +10,7 @@ public class Background3 : MonoBehaviour
      public Renderer additionalBgRenderer;
     private float lastTurtleY;
     private float totalAscent = 0.0f; // Variable to store the total ascent
+    public int totalAscent2 = 0;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class Background3 : MonoBehaviour
 
                 // Update the texture offset by decreasing Y to scroll upwards
                 bgRenderer.material.mainTextureOffset = new Vector2(bgRenderer.material.mainTextureOffset.x, bgRenderer.material.mainTextureOffset.y - offset);
-                int totalAscent2 = Mathf.FloorToInt(totalAscent);
+                totalAscent2 = Mathf.FloorToInt(totalAscent);
 
                 // Update the altitude display to show the total ascent
                 altitudeDisplay.text = $"{totalAscent2}";

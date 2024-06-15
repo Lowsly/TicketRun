@@ -1514,7 +1514,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: toca la pantalla para empezar
+  m_text: 'toca la pantalla para empezar
+
+
+    Haz que la tortuga nade dando varios
+    clics a la pantalla'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9538dbf3cf4ad74e945d4535d977441, type: 2}
   m_sharedMaterial: {fileID: -5400397373873652232, guid: a9538dbf3cf4ad74e945d4535d977441, type: 2}
